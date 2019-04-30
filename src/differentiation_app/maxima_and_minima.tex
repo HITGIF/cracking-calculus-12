@@ -1,0 +1,166 @@
+\chapterimage{img/max.jpg} 
+\chapter{Maxima and Minima}
+
+One of the most interesting question to ask when looking at a function's graph is, what's that highest/lowest point? Many of these problems can be solved by finding the appropriate function and then using techniques of calculus to find the maximum or the minimum value required.
+
+\section{Absolute Extrema}
+
+First let's start with the most concerned ones, finding the
+\textit{absolute extrema}.
+
+\begin{definition}\hfil
+    \begin{enumerate}
+    \item A point $(x,f(x))$ is an \textbf{absolute maximum} on an interval
+      if $f(x)\ge f(z)$ for every $z$ in that interval.
+    \item A point $(x,f(x))$ is an \textbf{absolute minimum} on an interval if
+      $f(x)\le f(z)$ for every $z$ in that interval.
+    \end{enumerate}
+    An \textbf{absolute extremum} is either an absolute maximum or an absolute minimum.
+    \\\cite{mooc}
+\end{definition}
+
+If we are working on an finite closed interval, then we have the
+following theorem. \cite{mooc}
+
+\begin{theorem}[Extreme Value Theorem]\label{theorem:evt}
+If $f(x)$ is a continuous function for all $x$ in the closed interval
+$[a,b]$, then there are points $c$ and $d$ in $[a,b]$, such that
+$(c,f(c))$ is an absolute maximum and $(d,f(d))$ is an absolute
+minimum on $[a, b]$.
+\\\cite{mooc}
+\end{theorem}
+
+In Figure~\ref{figure:extreme-value}, we see a geometric
+interpretation of this theorem. 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                domain=0:6, xmin=0, xmax=6, ymin=0, ymax=2.5,
+                axis lines =left, xlabel=$x$, ylabel=$y$,
+                every axis y label/.style={at=(current axis.above origin),anchor=south},
+                every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                xtick={1,2,4,5}, ytick={.2,2.2},
+                xticklabels={$a$,$c$,$d$,$b$}, yticklabels={$f(d)$,$f(c)$},
+                axis on top,
+              ]
+              \addplot [draw=none, fill=fill2, domain=(1:5)] {2.5} \closedcycle;
+              \addplot [textColor,dashed] plot coordinates {(0,2.2) (2,2.2)};
+              \addplot [textColor,dashed] plot coordinates {(0,.2) (4,.2)};
+              \addplot [textColor,dashed] plot coordinates {(2,0) (2,2.2)};
+              \addplot [textColor,dashed] plot coordinates {(4,0) (4,.2)};
+              \addplot [fill1,very thick] plot coordinates {(1,0) (1,2.5)};
+              \addplot [fill1,very thick] plot coordinates {(5,0) (5,2.5)};
+              \addplot [very thick,penColor, smooth,domain=(1.5:2.5)] {sin(deg(x*1.57-1.57)) + 1.2};%max
+              \addplot [very thick,penColor, smooth,domain=(3.5:4.5)] {sin(deg(x*1.57-1.57)) + 1.2};%min
+              \addplot [very thick,dashed,penColor!50!background, smooth,domain=(2.5:3.5)] {sin(deg(x*1.57 - 1.57)) + 1.2}; 
+              \addplot [very thick,dashed,penColor!50!background, smooth,domain=(1:1.5)] {sin(deg(x*1.57 - 1.57)) + 1.2}; 
+              \addplot [very thick,dashed,penColor!50!background, smooth,domain=(4.5:5)] {sin(deg(x*1.57 - 1.57)) + 1.2}; 
+              \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(2,2.2)};  %% closed hole    
+              \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(4,.2)};  %% closed hole       
+            \end{axis}
+    \end{tikzpicture}
+    \caption{A geometric interpretation of the Extreme Value Theorem. A continuous function $f(x)$ attains both an absolute maximum and an absolute minimum on an interval $[a,b]$. Note, it may be the case that $a=c$, $b=d$, or that $d<c$. \cite{mooc}}
+    \label{figure:extreme-value}
+\end{figure}
+
+\section{Relative Extrema}
+Apart from the top and bottom, for a continuous function, you can think of a relative maximum as occurring on a “hill” on the graph, and a relative minimum as occurring in a “valley” on the graph. \cite{ci}
+
+\begin{definition}[Relative Extrema]\hfil
+    \begin{enumerate}
+        \item If there is an open interval containing $c$ on which $f(c)$ is a maximum, then $f(c)$ is called a \B{relative maximum} of $f$, or you can say that $f$ has a relative maximum at $(c, f(c))$.
+        \item If there is an open interval containing $c$ on which $f(c)$ is a minimum, then $f(c)$ is called a \B{relative minimum} of $f$, or you can say that $f$ has a relative minimum at $(c, f(c))$.
+    \end{enumerate}
+    An \textbf{relative extremum} is either an relative maximum or an relative minimum.
+    \\\cite{ci}
+\end{definition}
+
+Continuing with the analogy before, such a hill and valley can occur in two ways. If the hill (or valley) is smooth and rounded, the graph has a horizontal tangent line at the high point (or low point). If the hill (or valley) is sharp and peaked, the graph represents a function that is not differentiable at the high point (or low point). \cite{ci} That said, the slope of the curve can be used to find these hills and valleys. The $x$-values indicating the existance possible extrema are called the \B{critical numbers}.
+
+\begin{definition}[Critical Number]
+    Let $f$ be defined at $c$. If $f(c)=0$ or if $f$ is not differentiable at $c$, then $c$ is a \B{critical number} of $f$. \cite{ci}
+\end{definition}
+
+At a point where the first derivative is zero, the curve has a horizontal tangent line, at which point it could be reaching a "hill" (maximum) or a "valley" (minimum). Then, how do you know it's a maximum or a minimum? You can use either the first or second derivative test, which we will explore in the next chapter. For now, just look at this example:\\
+
+% \begin{proposition}
+%     If a function has a critical number at $x=c$, then that value is a relative maximum if $f''(c) <0$ and it is a relative minimum if $f''(c) >0$. \cite{ap}
+% \end{proposition}
+% ~\\
+
+\begin{example}
+    Find all local maximum and minimum points for the function 
+    $f(x)=x^3-x$. 
+    
+    \begin{solution} 
+    First things first, the first derivative,
+    \[
+    \ddx f(x)=3x^2-1.
+    \] 
+    This is defined everywhere and is zero at $x=\pm \sqrt{3}/3$. Looking
+    first at $x=\sqrt{3}/3$, we see that 
+    \[
+    f(\sqrt{3}/3)=-2\sqrt{3}/9.
+    \] 
+    Now we test two points on either side of $x=\sqrt{3}/3$, making sure that neither is farther away than the nearest critical point; since
+    $\sqrt{3}<3$, $\sqrt{3}/3<1$ and we can use $x=0$ and $x=1$. Since
+    \[
+    f(0)=0>-2\sqrt{3}/9\qquad\text{and}\qquad f(1)=0>-2\sqrt{3}/9,
+    \] 
+    there must be a local minimum at $x=\sqrt{3}/3$.
+    
+    For $x=-\sqrt{3}/3$, we see that $f(-\sqrt{3}/3)=2\sqrt{3}/9$. This time we can use $x=0$ and $x=-1$, and we find that $f(-1)=f(0)=0<2\sqrt{3}/9$, so there must be a local maximum at $x=-\sqrt{3}/3$.
+    \end{solution}
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    domain=-2:2,
+                    ymax=2,
+                    ymin=-2,
+                    height=6cm,
+                    %samples=100,
+                    axis lines =middle, xlabel=$x$, ylabel=$y$,
+                    every axis y label/.style={at=(current axis.above origin),anchor=south},
+                    every axis x label/.style={at=(current axis.right of origin),anchor=west}
+                ]
+                \addplot [dashed, textColor, smooth] plot coordinates {(-.577,0) (-.577,.385)}; %% {.451};
+                \addplot [dashed, textColor, smooth] plot coordinates {(.577,-.385) (.577,0)}; %% axis{2.215};
+        
+                \addplot [very thick, penColor2, smooth] {3*x^2-1};
+                \addplot [very thick, penColor, smooth] {x^3-x};
+        
+                \node at (axis cs:1,1) [anchor=west] {\color{penColor}$f(x)$};  
+                \node at (axis cs:-.75,1) [anchor=west] {\color{penColor2}$f'(x)$};
+        
+                \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(-.577,0)};  %% closed hole
+                \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(.577,0)};  %% closed hole
+                \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(-.577,.385)};  %% closed hole
+                \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(.577,-.385)};  %% closed hole
+                \end{axis}
+        \end{tikzpicture}
+        \caption{A plot of $f(x) = x^3-x$ and $f'(x) = 3x^2-1$.}
+        \label{figure:x^3-x}
+    \end{figure}
+\end{example}
+
+\begin{exercise}
+    ~\\\\\-\hspace{0.3cm} \textbf{
+        Find the $x$ values for relative maximum and minimum points.
+    }\cite{mooc}
+    \twocol
+    \begin{enumerate} 
+        \item $y=x^2-x$ 
+        \item $y=2+3x-x^3$ 
+        \item $y=x^3-9x^2+24x$
+        \item $y=x^4-2x^2+3$ 
+        \item $y=-\frac{x^4}{4}+x^3+x^2$ 
+        \item $f(x) = \begin{cases} x-1 & x < 2  \\
+        x^2 & x\geq 2 \end{cases}$
+        \item $f(x) =\begin{cases} -2 & x = 0  \\
+        1/x^2 & x \neq 0 \end{cases}$
+    \end{enumerate}
+    \endtwocol
+\end{exercise}

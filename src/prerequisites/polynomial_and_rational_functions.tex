@@ -1,0 +1,309 @@
+\chapterimage{img/step.jpg} 
+\chapter{Polynomial and Rational Functions}
+\section{Quadratic Function}
+
+In this and the next section, you will study the graphs of polynomial functions. In Chapter 1, you were introduced to the following basic functions. \cite{ci}
+
+\begin{align*}
+    f(x)&=ax+b       && \text{Linear function}\\
+    f(x)&=c          && \text{Constant function}\\
+    f(x)&=x^2        && \text{Squaring function}\\
+\end{align*}
+
+These functions are examples of \textbf{polynomial functions}.
+
+\begin{definition}[Polynomial Function]
+    Let n be a nonnegative integer and let $a_n, a_{n-1}, \dddot{} , a_2, \\a_1, a_0$ be real numbers with $a_n \neq 0$. The function given by
+    $$f(x)=a_nx^n+a_{n-1}x^{n-1}+\dddot{}+a_2x^2+a_1x+a_0$$
+    is called a \textbf{polynomial function of $x$ with degree $n$}.
+    \\ \cite{ci}
+\end{definition}
+
+Polynomial functions are classified by degree. For instance, a constant function $f(x)=c$ with $c\neq 0$ has degree 0, and a linear function $f(x)=ax+b$ with $a\neq 0$ has degree 1. In this section, you will study second-degree polynomial functions, which are called \textbf{quadratic functions}. \cite{ci}
+
+For instance, each of the following functions is a quadratic function.
+\begin{align*}
+    f(x)&=x^2+6x+2\\
+    g(x)&=2(x+1)^2-3\\
+    h(x)&=9+\dfrac{1}{4}x^2\\
+    k(x)&=-3x^2+4\\
+    m(x)&=(x-2)(x+1)\\
+\end{align*}
+Note that the squaring function is a simple quadratic function that has degree 2.
+
+\begin{definition}[Quadratic Function]
+    Let $a$, $b$, and $c$ be real numbers with $a \neq 0$. The function given by $$f(x)=ax^2+bx+c$$
+    is called a \textbf{quadratic function}.
+    \\ \cite{ci}
+\end{definition}
+
+The graph of a quadratic function is a special type of “U”-shaped curve called a \textbf{parabola}. Parabolas occur in many real-life applications—especially those involving reflective properties of satellite dishes and flashlight reflectors.
+
+All parabolas are symmetric with respect to a line called the \textbf{axis of symmetry}, or simply the \textbf{axis} of the parabola. The point where the axis intersects the parabola is the \textbf{vertex} of the parabola, as shown in Figure \ref{plot:quat func bas}. When $a > 0$, the graph of
+$$f(x)=ax^2+bx+c$$
+is a parabola that opens upward. When $a < 0$, the graph of
+$$f(x)=ax^2+bx+c$$
+is a parabola that opens downward. \cite{ci}
+
+\begin{figure}[H]
+    \centering
+    \begin{multicols}{2}
+    \begin{tikzpicture}
+        \begin{axis}[nejes=-6:2 -2:10,xlabel=$x$, ylabel=$y$]
+            \addplot [domain=-10:5, very thick, black] {(x+2)^2+2};
+            \addplot [soldot, black] coordinates{(-2,2)} node[left=1.6cm, below,pos=1,black] {Vertex is minimum};
+            \draw[dashed, penColor, thick] (axis cs:-2,-2) -- (axis cs:-2,8) node[above,pos=1,black] {Opens upward};
+        \end{axis}
+    \end{tikzpicture}
+    $a > 0$
+    \begin{tikzpicture}
+        \begin{axis}[nejes=-6:2 -2:10,xlabel=$x$, ylabel=$y$]
+            \addplot [domain=-20:5, very thick, black] {-(x+2)^2+8};
+            \addplot [soldot, black] coordinates{(-2,8)} node[left=1.6cm, above,pos=1,black] {Vertex is maximum};
+            \draw[dashed, penColor, thick] (axis cs:-2,10) -- (axis cs:-2,-1) node[below,pos=1,black] {Opens downward};
+        \end{axis}
+    \end{tikzpicture}
+    $a < 0$
+\end{multicols}
+    \caption{Parabola of $ax^2+bx+c$}
+    \label{plot:quat func bas}
+\end{figure}
+
+The simplest type of quadratic function is
+$$f(x)=ax^2$$
+Its graph is a parabola whose vertex is (0, 0). When $a$ > 0, the vertex is the point with the \textit{minimum} $y$-value on the graph, and when $a$ < 0, the vertex is the point with the \textit{maximum} $y$-value on the graph, as shown in Figure \ref{plot:quat func bas}. \cite{ci}
+
+\section{Polynomial Functions of Higher Degree}
+
+In this section, you will study basic features of the graphs of polynomial functions. The first feature is that the graph of a polynomial function is \textit{continuous}. Essentially, this means that the graph of a polynomial function has no breaks, holes, or gaps, as shown in Figure \ref{plot:polynomials are countinuous}(a). The graph shown in Figure \ref{plot:polynomials are countinuous}(b) is an example of a piecewise-defined function that is not continuous.
+
+\begin{figure}[H]
+    \centering
+    \begin{multicols}{2}
+    \begin{tikzpicture}
+        \begin{axis}[nejes=-1:5 -1:5,xlabel=$x$, ylabel=$y$, height=4cm]
+            \addplot [domain=-1:5, very thick, penColor] {(x-1)^3-x+3};
+        \end{axis}
+    \end{tikzpicture}
+    (a) Polynomial functions have continuous graphs.
+    \begin{tikzpicture}
+        [
+            declare function={
+                func(\x)= (\x < 3) * -(x-2)^2+3   +
+                (\x > 3) * (x-3)^2+1
+            ;
+        }]
+        \begin{axis}[nejes=-1:10 -2:8,xlabel=$x$, ylabel=$y$, height=4cm]
+            \addplot [domain=-1:3, very thick, penColor] {func(x)};
+            \addplot [domain=3:8, very thick, penColor] {func(x)};
+            \addplot [holdot] coordinates{(3,3)};
+            \addplot [soldot] coordinates{(3,4)};
+        \end{axis}
+    \end{tikzpicture}
+    (b) Functions with graphs that are not continuous are not polynomial functions.
+\end{multicols}
+    \caption{Continuity of Polynomial Functions}
+    \label{plot:polynomials are countinuous}
+\end{figure}
+
+The second feature is that the graph of a polynomial function has only smooth, rounded turns, as shown in Figure \ref{plot:polynomials are smooth}(a). A polynomial function cannot have a sharp turn. For instance, the function given by $f(x)=|x|$, which has a sharp turn at the point (0, 0), as shown in Figure \ref{plot:polynomials are smooth}(b), is not a polynomial function.
+
+\begin{figure}[H]
+    \centering
+    \begin{multicols}{2}
+    \begin{tikzpicture}
+        \begin{axis}[nejes=-4:4 -2:2,xlabel=$x$, ylabel=$y$, height=4cm]
+            \addplot [domain=-4:4, very thick, penColor] {x^5-2*x^3};
+        \end{axis}
+    \end{tikzpicture}
+    (a) Polynomial functions have graphs with smooth, rounded turns.
+    \begin{tikzpicture}
+        \begin{axis}[ejes=-4:4 -1:4,xlabel=$x$, ylabel=$y$, height=4cm]
+            \addplot [domain=-4:4, very thick, penColor] {abs(x)};
+            \addplot [soldot] coordinates{(0,0)};
+        \end{axis}
+    \end{tikzpicture}
+    (b) Graphs of polynomial functions
+    cannot have sharp turns.
+\end{multicols}
+    \caption{Smoothness of Polynomial Functions}
+    \label{plot:polynomials are smooth}
+\end{figure}
+
+\section{Real Zeros of Polynomial Functions}
+
+It can be shown that for a polynomial function $f$ of degree $n$, the following statements are true. \cite{ci}
+\begin{enumerate}
+    \item The function $f$ has, at most, $n$ real zeros. 
+    \item The graph of $f$ has, at most, $n-1$ turning points.
+\end{enumerate}
+~\\
+\begin{proposition}[Real Zeros of Polynomial Functions ]\cite{ci}
+    ~\\
+    When $f$ is a polynomial function and $a$ is a real number, the following statements are equivalent.
+    \begin{enumerate}
+        \item $x=a$ is a \textit{zero} of the function $f$.
+        \item $x=a$ is a solution of the polynomial equation $f(x)=0$. 
+        \item $(x-a)$ is a factor of the polynomial $f(x)$.
+        \item $(a,0)$ is an x-intercept of the graph of $f$.
+    \end{enumerate}
+\end{proposition}
+~\\
+\begin{example}[Find the Zeros of a Polynomial Function ]\cite{ci}~\newline
+    Find all real zeros of
+    $$f(x)=-2x^4+2x^2.$$
+    Then determine the number of turning points of the graph of the function.\\
+    \begin{solution}~\newline
+        To find the real zeros of the function, set $f(x)$ equal to zero and solve for $x$.
+        \begin{align*}
+            -2x^4+2x^2      & = 0   && \text{Set $f(x)$ equal to 0.}\\
+            -2x^2(x^2-1)    & = 0   && \text{Remove common monomial factor.}\\
+            -2x^2(x-1)(x+1) & = 0   && \text{Factor completely.}
+        \end{align*}
+        So, the real zeros are $x = 0$, $x = 1$, and $x = -1$. Because the function is a fourth-degree polynomial, the graph of $f$ can have at most $4 - 1 = 3$ turning points.\\
+	\end{solution}
+\end{example}
+
+\begin{proposition}[Repeated Zeros ]\cite{ci}
+    ~\\
+    A factor $(x-a)^k, k>1$, yields a \textbf{repeated zero} $x=a$ of \textbf{multiplicity} $k$.
+    \begin{enumerate}
+        \item When $k$ is odd, the graph \textit{crosses} the $x$-axis at $x=a$.
+        \item When $k$ is even, the graph \textit{touches} the $x$-axis (but does not cross the $x$-axis) at $x=a$.
+    \end{enumerate}
+\end{proposition}
+
+\section{Rational Functions}
+
+A rational function is a quotient of polynomial functions. It can be written in the form
+$$f(x)=\dfrac{N(x)}{D(x)}$$
+where $N(x)$ and $D(x)$ are polynomials and $D(x)$ is not the zero polynomial.\cite{ci}
+
+In general, the \textit{domain} of a rational function of $x$ includes all real numbers except $x$-values that make the denominator zero. Much of the discussion of rational functions will focus on their graphical behavior near these $x$-values excluded from the domain. \cite{ci}
+
+\section{Vertical and Horizontal Asymptotes}
+
+Consider this function:
+$$f(x) = \dfrac{1}{x}$$
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                ejes=-2:2 -2:2,xlabel=$x$, ylabel=$y$,
+                every axis y label/.style={at=(current axis.above origin),anchor=south},
+                every axis x label/.style={at=(current axis.right of origin),anchor=west},
+            ]
+            \addplot [domain=0:2, very thick, penColor] {1/x};
+            \addplot [domain=-2:0, very thick, penColor] {1/x};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{A plot of $\dfrac{1}{x}$.}
+    \label{plot:1/x}
+\end{figure}
+
+the behaviour of $f$ near $x=0$ is denoted as follows.
+$$
+f(x) \to -\infty \text{ as } x \to 0^- 
+\qquad
+f(x) \to \infty \text{ as } x \to 0^+
+$$
+The line $x=0$ is a \textbf{vertical asymptote} of the graph of $f$, as shown in Figure \ref{plot:1/x}. From
+this figure, you can see that the graph of $f$ also has a \textbf{horizontal asymptote} — the line $y=0$. This means that the values of $f(x)=\dfrac{1}{x}$ approach zero as $x$ increases or decreases without bound.
+$$
+f(x) \to 0 \text{ as } x \to -\infty 
+\qquad
+f(x) \to 0 \text{ as } x \to \infty
+$$
+
+\begin{definition}[Vertical and Horizontal Asymptotes]
+    ~\\ 
+    \begin{enumerate}
+        \item The line $x=a$ is a \textbf{vertical asymptote} of the graph of $f$ when
+        $$f(x) \to -\infty \text{ or } f(x) \to \infty$$
+        as $x\to a$, either from the right or from the left.
+        \item The line $y=b$ is a \textbf{horizontal asymptote} of the graph of $f$ when
+        $$f(x) \to b$$
+        as $x\to \infty$ or $x\to -\infty$. 
+    \end{enumerate}
+    \cite{ci}   
+\end{definition}
+\clearpage
+\begin{proposition}[Vertical and Horizontal Asymptotes of a Rational Function]\cite{ci}
+    ~\\
+    Let $f$ be the rational function given by
+    $$f(x)=\dfrac{N(x)}{D(x)} = \dfrac
+    {a_nx^n+a_{n-1}x^{n-1}+ \dddot{} +a_1x+a_0}
+    {b_mx^m+b_{m-1}x^{m-1}+ \dddot{} +b_1x+b_0}$$ 
+    where $N(x)$ and $D(x)$ have no common factors.
+    \begin{enumerate}
+        \item The graph of $f$ has \textit{vertical} asymptotes at the zeros of $D(x)$.
+        \item The graph of $f$ has one or no \textit{horizontal} asymptote determined by comparing the degrees of $N(x)$ and $D(x)$.
+        \begin{enumerate}
+            \item When $n < m$,the graph of $f$ has the line $y=0$ (the $x$-axis) as a horizontal asymptote.
+            \item When $n = m$,the graph of $f$ has the line $y=\dfrac{a_n}{b_m}$ (ratio of the leading coefficients) as a horizontal asymptote.
+            \item When $n > m$,the graph of $f$ has no horizontal asymptote.
+        \end{enumerate}
+    \end{enumerate}
+\end{proposition}
+~\\
+\begin{example}[Finding Vertical and Horizontal Asymptotes]\cite{ci}~\newline
+    Find all vertical and horizontal asymptotes of the graph of each rational function.
+    \begin{enumerate}
+        \item $f(x)=\dfrac{2x^2}{x^2-1}$
+        \item $f(x)=\dfrac{x^2+x-2}{x^2-x-6}$
+    \end{enumerate}
+    ~\\
+    \begin{solution}~\newline
+        \begin{enumerate}
+            \item For this rational function, the degree of the numerator is equal to the degree of the denominator. The leading coefficient of the numerator is 2 and the leading coefficient of the denominator is 1, so the graph has the line $y=2$ as a horizontal asymptote. To find any vertical asymptotes, set the denominator equal to zero and solve the resulting equation for $x$.
+            \begin{align*}
+                x^2-1 &=0       &&\text
+                {Set denominator equal to zero.}\\
+                (x+1)(x-1)&=0   &&\text
+                {Factor.}\\
+                x+1&=0,\quad x=-1    &&\text
+                {Set 1st factor equal to 0.}\\
+                x-1&=0,\quad x=1     &&\text
+                {Set 2nd factor equal to 0.}
+            \end{align*}
+            This equation has two real solutions, $x=1$ and $x=-1$, so the graph has the lines $x=1$ and $x=-1$ as vertical asymptotes.
+
+            \item For this rational function, the degree of the numerator is equal to the degree of the denominator. The leading coefficient of both the numerator and denominator is 1, so the graph has the line $y=1$ as a horizontal asymptote. To find any vertical asymptotes, first factor the numerator and denominator as follows.
+            $$f(x)=\dfrac{x^2+x-2}{x^2-x-6}=\dfrac{(x-1)(x+2)}{(x+2)(x-3)}=\dfrac{x-1}{x-3},\quad x\neq -2$$
+            By setting the denominator $x-3$ (of the simplified function) equal to zero, you can determine that the graph has the line $x=3$ as a vertical asymptote.
+        \end{enumerate}
+	\end{solution}
+\end{example}
+
+\begin{exercise}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 1–4, (a) find all the real zeros of the polynomial function, (b) determine the multiplicity of each zero and the number of turning points of the graph of the function.
+    }\cite{ci}\\
+    \begin{enumerate} 
+		\item $f(x) = x^2-36$
+		\item $g(x) = 3x^3-12x^2+3x$
+		\item $f(c) = 3x^3+3x^2-4x-12$
+		\item $f(t) = t^5-6t^3+9t$
+    \end{enumerate}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 5–8, find a polynomial function that has the given zeros. (There are many correct answers.)
+    }\cite{ci}\\
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item $0,8$
+        \item $4,-3,3,0$
+        \item $1+\sqrt{3}, 1-\sqrt{3}$
+        \item $0, -4, -5$
+    \end{enumerate}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 9–12, find any vertical and horizontal Asymptotes.
+    }\cite{ci}\\
+    \begin{enumerate}
+        \setcounter{enumi}{8}
+        \item $f(x)=-\dfrac{1}{(x-2)^2}$
+        \item $f(x) = \dfrac{2x^2-5x-3}{x^3-2x^2-5x+6}$
+        \item $f(x) = \dfrac{x^2+3x)}{x^2+x-6}$
+        \item $f(t) = \dfrac{t^2-1}{t-1}$
+    \end{enumerate}
+\end{exercise}

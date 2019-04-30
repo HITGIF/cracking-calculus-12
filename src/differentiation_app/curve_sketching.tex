@@ -1,0 +1,729 @@
+\chapterimage{img/curve.jpg} 
+\chapter{Curve Sketching}
+
+\section{The First Derivative Test}
+
+The method of the previous section for deciding whether there is a
+relative maximum or minimum at a critical point by testing ``near-by''
+points is not always convenient. Instead, since we have already had to
+compute the derivative to find the critical points, we can use
+information about the derivative to decide. \cite{mooc} Recall that
+~\\
+\begin{itemize}
+\item If $f'(x) >0$ on an interval, then $f(x)$ is increasing on that interval.
+\item If $f'(x) <0$ on an interval, then $f(x)$ is decreasing on that interval.
+\end{itemize}
+~\\
+So how exactly does the derivative tell us whether there is a maximum,
+minimum, or neither at a point? Use the \textit{first derivative test}. \cite{mooc}
+
+\begin{theorem}[First Derivative Test]
+    \label{T:fdt}\hfil
+    Suppose that $f(x)$ is continuous on an interval, and that $f'(a)=0$
+    for some value of $a$ in that interval.
+    \begin{itemize}
+        \item If $f'(x)>0$ to the left of $a$ and $f'(x)<0$ to the right of
+        $a$, then $f(a)$ is a relative maximum.
+        \item If $f'(x)<0$ to the left of $a$ and $f'(x)>0$ to the right of
+        $a$, then $f(a)$ is a relative minimum.
+        \item If $f'(x)$ has the same sign to the left and right of $a$,
+        then $f(a)$ is not a relative extremum.
+    \end{itemize}
+    \cite{mooc}
+\end{theorem}
+
+\hfil
+\begin{example}\label{E:relativeextrema}
+    Consider the function 
+    $$
+    f(x) = \frac{x^4}{4}+\frac{x^3}{3}-x^2
+    $$
+    Find the intervals on which $f(x)$ is increasing and decreasing and
+    identify the relative extrema of $f(x)$. \cite{mooc}
+    \clearpage
+    \begin{solution}
+    Start by computing
+    \[
+    \ddx f(x) = x^3+x^2-2x.
+    \]
+    Now we need to find when this function is positive and when it is
+    negative. To do this, solve 
+    \[
+    f'(x) = x^3+x^2-2x =0.
+    \]
+    Factor $f'(x)$
+    \begin{align*}
+    f'(x) &= x^3+x^2-2x \\
+    &=x(x^2+x-2)\\
+    &=x(x+2)(x-1).
+    \end{align*}
+    So the critical points (when $f'(x)=0$) are when $x=-2$, $x=0$, and
+    $x=1$. Now we can check points \textbf{between} the critical points to find
+    when $f'(x)$ is increasing and decreasing:
+    \[
+    f'(-3)=-12 \qquad f'(.5)=-0.625 \qquad f'(-1)=2 \qquad f'(2)=8
+    \]
+    From this we can make a sign table:
+    
+    \flushleft
+    \begin{tikzpicture}
+        \begin{axis}[
+                trim axis left,
+                scale only axis,
+                domain=-3:3,
+                ymax=2,
+                ymin=-2,
+                axis lines=none,
+                height=3cm, %% Hard coded height! 
+                width=\textwidth, %% width
+              ]
+              \addplot [draw=none, fill=fill1, domain=(-3:-2)] {2} \closedcycle;
+              \addplot [draw=none, fill=fill2, domain=(-2:0)] {2} \closedcycle;
+              \addplot [draw=none, fill=fill1, domain=(0:1)] {2} \closedcycle;
+              \addplot [draw=none, fill=fill2, domain=(1:3)] {2} \closedcycle;
+              
+              \addplot [->,textColor] plot coordinates {(-3,0) (3,0)}; %% axis{0};
+              
+              \addplot [dashed, textColor] plot coordinates {(-2,0) (-2,2)};
+              \addplot [dashed, textColor] plot coordinates {(0,0) (0,2)};
+              \addplot [dashed, textColor] plot coordinates {(1,0) (1,2)};
+              
+              \node at (axis cs:-2,0) [anchor=north,textColor] {\footnotesize$-2$};
+              \node at (axis cs:0,0) [anchor=north,textColor] {\footnotesize$0$};
+              \node at (axis cs:1,0) [anchor=north,textColor] {\footnotesize$1$};
+    
+              \node at (axis cs:-2.5,1) [textColor] {\footnotesize$f'(x)<0$};
+              \node at (axis cs:.5,1) [textColor] {\footnotesize$f'(x)<0$};
+              \node at (axis cs:-1,1) [textColor] {\footnotesize$f'(x)>0$};
+              \node at (axis cs:2,1) [textColor] {\footnotesize$f'(x)>0$};
+    
+              \node at (axis cs:-2.5,-.5) [anchor=north,textColor] {\footnotesize Decreasing};
+              \node at (axis cs:.5,-.5) [anchor=north,textColor] {\footnotesize Decreasing};
+              \node at (axis cs:-1,-.5) [anchor=north,textColor] {\footnotesize Increasing};
+              \node at (axis cs:2,-.5) [anchor=north,textColor] {\footnotesize Increasing};
+    
+            \end{axis}
+    \end{tikzpicture}
+    
+    Hence $f(x)$ is increasing on $(-2,0)\cup(1,\infty)$ and $f(x)$ is
+    decreasing on $(-\infty,-2)\cup(0,1)$. Moreover, from the first
+    derivative test, Theorem~\ref{T:fdt}, the relative maximum is at $x=0$
+    while the relative minima are at $x=-2$ and $x=1$, see
+    Figure~\ref{figure:(x^4)/4 + (x^3)/3 -x^2}.
+    \end{solution}
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    domain=-4:4,
+                    ymax=5,
+                    ymin=-5,
+                    %samples=100,
+                    axis lines =middle, xlabel=$x$, ylabel=$y$,
+                    every axis y label/.style={at=(current axis.above origin),anchor=south},
+                    every axis x label/.style={at=(current axis.right of origin),anchor=west}
+                ]
+                \addplot [dashed, textColor, smooth] plot coordinates {(-2,0) (-2,-2.667)}; %% {.451};
+                \addplot [dashed, textColor, smooth] plot coordinates {(1,0) (1,-.4167)}; %% axis{2.215};
+        
+                \addplot [very thick, penColor, smooth] {(x^4)/4 + (x^3)/3 -x^2};
+                \addplot [very thick, penColor2, smooth] {x^3 + x^2 -2*x};
+        
+                \node at (axis cs:-1.3,-2) [anchor=west] {\color{penColor}$f(x)$};  
+                \node at (axis cs:-2.1,2) [anchor=west] {\color{penColor2}$f'(x)$};
+        
+                \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(-2,0)};  %% closed hole
+                \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(1,0)};  %% closed hole
+                \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+                \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(-2,.-2.667)};  %% closed hole
+                \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,-.4167)};  %% closed hole
+            \end{axis}
+        \end{tikzpicture}
+        \caption{A plot of $f(x) =x^4/4 + x^3/3 -x^2$ and $f'(x) = x^3 + x^2 -2x$. \cite{mooc}}
+        \label{figure:(x^4)/4 + (x^3)/3 -x^2}
+    \end{figure}
+\end{example}
+
+Hence we have seen that if $f'(x)$ is zero and increasing at a point,
+then $f(x)$ has a relative minimum at the point. If $f'(x)$ is zero and
+decreasing at a point then $f(x)$ has a relative maximum at the
+point. Thus, we see that we can gain information about $f(x)$ by
+studying how $f'(x)$ changes. This leads us to our next section. \cite{mooc}
+
+
+
+
+\section{Concavity and Inflection Points}
+
+We know that the sign of the derivative tells us whether a function is
+increasing or decreasing. Likewise, the sign of the second derivative
+$f''(x)$ tells us whether $f'(x)$ is increasing or decreasing. We summarize this in the table below: \cite{mooc}\\
+
+{\setlength{\arrayrulewidth}{5pt}
+\taburulecolor{textColor!10!background}
+\begin{tabu}{c|c|c|} %% gives thick lines
+ & $f'(x)<0$ & $f'(x) > 0$ \\ \hline & & \\[-1.5ex]
+$f''(x)> 0$ & 
+\begin{minipage}{2in}
+\[
+\begin{tikzpicture}
+	\begin{axis}[
+            clip=false,
+            height=4.5cm,
+            domain=0:1,
+            ymax=1,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor, smooth] {(x-1)^2};
+          \node at (axis cs:.7,.4) [textColor] {\footnotesize Concave Up};
+        \end{axis}
+\end{tikzpicture}
+\]
+\begin{minipage}{2in}\footnotesize
+Here $f'(x)<0$ and $f''(x)>0$. This means that $f(x)$ slopes down and
+is getting \textit{less steep}. In this case the curve is
+\textbf{concave up}.
+\end{minipage}
+\end{minipage}
+&
+\begin{minipage}{2in}
+\[
+\begin{tikzpicture}
+	\begin{axis}[
+            clip=false,
+            domain=0:1,
+            ymax=1,
+            height=4.5cm,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor, smooth] {x^2};
+          \node at (axis cs:.3,.4) [textColor] {\footnotesize Concave Up};
+        \end{axis}
+\end{tikzpicture}
+\]
+\begin{minipage}{2in}\footnotesize
+Here $f'(x)>0$ and $f''(x)>0$. This means that $f(x)$ slopes up and is
+getting \textit{steeper}. In this case the curve is \textbf{concave
+  up}.
+\end{minipage}
+\end{minipage}
+\\[-2ex]
+& & 
+\\\hline 
+& & \\[-1.5ex]
+$f''(x)<0$ &
+\begin{minipage}{2in}
+\[
+\begin{tikzpicture}
+	\begin{axis}[
+            clip=false,
+            height=4.5cm,
+            domain=0:1,
+            ymax=1,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor, smooth] {-x^2+1};
+          \node at (axis cs:.4,.4) [textColor] {\footnotesize Concave Down};
+        \end{axis}
+\end{tikzpicture}
+\]
+\begin{minipage}{2in}\footnotesize
+Here $f'(x)<0$ and $f''(x)<0$. This means
+that $f(x)$ slopes down and is getting \textit{steeper}. In this case the curve is \textbf{concave down}.
+\end{minipage}
+\end{minipage}
+&
+\begin{minipage}{2in}
+\[
+  \begin{tikzpicture}
+	\begin{axis}[
+            clip=false,
+            height=4.5cm,
+            domain=0:1,
+            ymax=1,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor, smooth] {-(x-1)^2+1};
+          \node at (axis cs:.6,.4) [textColor] {\footnotesize Concave Down};
+        \end{axis}
+\end{tikzpicture}
+\]
+\begin{minipage}{2in}\footnotesize
+Here $f'(x)>0$ and $f''(x)<0$. This means
+that $f(x)$ slopes up and is getting less \textit{steep}. In this case the curve is \textbf{concave down}.
+\end{minipage}
+\end{minipage}
+\\[-2ex]
+& & 
+\\\hline 
+\end{tabu}}
+    
+
+If we are trying to understand the shape of the graph of a function,
+knowing where it is concave up and concave down helps us to get a more
+accurate picture. It is worth summarizing what we have seen already in
+to a single theorem.
+
+\begin{theorem}[Test for Concavity]\index{concavity test}
+Suppose that $f''(x)$ exists on an interval.
+\begin{enumerate}
+\item If $f''(x)>0$ on an interval, then $f(x)$ is concave up on that interval.
+\item If $f''(x)<0$ on an interval, then $f(x)$ is concave down on that interval.
+\end{enumerate}
+\end{theorem}
+
+
+Of particular interest are points at which the concavity changes from
+up to down or down to up. 
+
+\begin{definition}\index{inflection point}
+If $f(x)$ is continuous and its concavity changes either from up to
+down or down to up at $x=a$, then $f(x)$ has an \textbf{inflection
+  point} at $x=a$.
+\end{definition}
+
+It is instructive to see some examples and nonexamples of inflection
+points.
+
+\begin{tabular}{cccc}
+\begin{tikzpicture}
+	\begin{axis}[
+            domain=0:2,
+            ymax=2,
+            height=4.5cm,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor, smooth, domain=(0:1)] {(x-1)^2+1};
+          \addplot [very thick, penColor, smooth, domain=(1:2)] {-(x-1)^2+1};
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,1)};
+        \end{axis}
+\end{tikzpicture}
+
+&
+
+\begin{tikzpicture}
+	\begin{axis}[
+            height=4.5cm,
+            domain=0:2,
+            ymax=1,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor2, smooth] {-(x-1)^2+.75};
+          \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(1,.75)};
+        \end{axis}
+\end{tikzpicture} 
+
+\\[-2ex]
+& & 
+\\\hline 
+& & \\[-1.5ex]
+
+\begin{minipage}{2in}\footnotesize
+    This is an inflection point. The concavity changes from concave up to
+    concave down.
+\end{minipage}
+    
+& 
+    
+\begin{minipage}{2in}\footnotesize
+    This is \textbf{not} an inflection point. The curve is concave down on either side of the point.
+\end{minipage}
+\\
+\begin{tikzpicture}
+	\begin{axis}[
+            height=4.5cm,
+            domain=0:2,
+            ymax=2,
+            ymin=0,
+            samples=100,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor, smooth,domain=(1:2)] {sqrt(x-1)+1};
+          \addplot [very thick, penColor, smooth,domain=(0:1)] {-sqrt(abs(1-x))+1};
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,1)};
+        \end{axis}
+\end{tikzpicture}
+
+&
+
+\begin{tikzpicture}
+	\begin{axis}[
+            height=4.5cm,
+            domain=0:2,
+            ymax=2,
+            ymin=0,
+            axis lines=none,
+          ]
+          \addplot [very thick, penColor2, smooth,domain=(1:2)] {sqrt(x-1)+.5};
+          \addplot [very thick, penColor2, smooth,domain=(0:1)] {sqrt(abs(1-x))+.5};
+          \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(1,.5)};
+        \end{axis}
+\end{tikzpicture} \\
+
+\begin{minipage}{2in}\footnotesize
+This is an inflection point. The concavity changes from concave up to concave down.
+\end{minipage}
+
+&
+
+\begin{minipage}{2in}\footnotesize
+This is \textbf{not} an inflection point. The curve is concave down on either side of the point.
+\end{minipage}
+\end{tabular}
+~\\\\\\\\
+We identify inflection points by first finding where $f''(x)$ is zero or undefined and then checking to see whether $f''(x)$ does in fact go from positive to negative or negative to positive at these points.
+
+
+\section{The Second Derivative Test}
+
+
+Recall the first derivative test, Theorem~\ref{T:fdt}:\\
+\begin{itemize}
+\item If $f'(x)>0$ to the left of $a$ and $f'(x)<0$ to the right of
+  $a$, then $f(a)$ is a relative maximum.
+\item If $f'(x)<0$ to the left of $a$ and $f'(x)>0$ to the right of
+  $a$, then $f(a)$ is a relative minimum.
+\end{itemize}
+~\\
+If $f'(x)$ changes from positive to negative it is decreasing. In this
+case, $f''(x)$ might be negative, and if in fact $f''(x)$ is negative
+then $f'(x)$ is definitely decreasing, so there is a relative maximum at
+the point in question. On the other hand, if $f'(x)$ changes from
+negative to positive it is increasing. Again, this means that
+$f''(x)$ might be positive, and if in fact $f''(x)$ is positive then
+$f'(x)$ is definitely increasing, so there is a relative minimum at the
+point in question. We summarize this as the \textit{second derivative test}. \cite{mooc}
+
+\begin{theorem}[Second Derivative Test]\index{second derivative test}\label{T:sdt}
+Suppose that $f''(x)$ is continuous on an open interval and that
+$f'(a)=0$ for some value of $a$ in that interval.
+\begin{itemize}
+\item If $f''(a) <0$, then $f(x)$ has a relative maximum at $a$.
+\item If $f''(a) >0$, then $f(x)$ has a relative minimum at $a$.
+\item If $f''(a) =0$, then the test is inconclusive. In this case,
+  $f(x)$ may or may not have a relative extremum at $x=a$.
+\end{itemize}
+\end{theorem}
+
+
+The second derivative test is often the easiest way to identify relative
+maximum and minimum points. Sometimes the test fails and sometimes
+the second derivative is quite difficult to evaluate. In such cases we
+must fall back on one of the previous tests. \cite{mooc}
+
+\clearpage
+\begin{example}
+Once again, consider the function 
+$$
+f(x) = \frac{x^4}{4}+\frac{x^3}{3}-x^2
+$$
+Use the second derivative test, Theorem~\ref{T:sdt}, to locate the
+relative extrema of $f(x)$.  \cite{mooc}
+\end{example}
+
+\begin{solution}
+Start by computing
+\[
+f'(x) = x^3 + x^2 -2x \qquad\text{and}\qquad f''(x) = 3x^2 + 2x-2.
+\] 
+Using the same technique as used in the solution of
+Example~\ref{E:relativeextrema}, we find that 
+\[
+f'(-2) = 0,\qquad f'(0) = 0, \qquad f'(1) = 0. 
+\]
+Now we'll attempt to use the second derivative test, Theorem~\ref{T:sdt},
+\[
+f''(-2) = 6, \qquad f''(0) = -2, \qquad f''(1) = 3.
+\]
+Hence we see that $f(x)$ has a relative minimum at $x=-2$, a relative
+maximum at $x=0$, and a relative minimum at $x=1$, see Figure~\ref{figure:SDT(x^4)/4 + (x^3)/3 -x^2}.
+\end{solution}
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+	\begin{axis}[
+            domain=-4:4,
+            ymax=7,
+            ymin=-4,
+            %samples=100,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+          \addplot [dashed, textColor, smooth] plot coordinates {(-2,-2.667) (-2,6)}; %% {.451};
+          \addplot [dashed, textColor, smooth] plot coordinates {(1,0) (1,3)}; %% axis{2.215};
+
+          \addplot [very thick, penColor, smooth] {(x^4)/4 + (x^3)/3 -x^2};
+          \addplot [very thick, penColor2, smooth] {3*x^2 + 2*x -2};
+
+          \node at (axis cs:-1.7,-2.7) [anchor=west] {\color{penColor}$f(x)$};  
+          \node at (axis cs:-1.5,2) [anchor=west] {\color{penColor2}$f''(x)$};
+
+          \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(-2,6)};  %% closed hole
+          \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(1,3)};  %% closed hole
+          \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(0,-2)};  %% closed hole
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(-2,.-2.667)};  %% closed hole
+          \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,-.4167)};  %% closed hole
+        \end{axis}
+\end{tikzpicture}
+\caption{A plot of $f(x) =x^4/4 + x^3/3 -x^2$ and $f''(x) = 3x^2 + 2x -2$. \cite{mooc}}
+\label{figure:SDT(x^4)/4 + (x^3)/3 -x^2}
+\end{figure}
+
+
+\section{Sketching the Plot of a Function} 
+
+
+In this section, we will give some general guidelines for sketching
+the plot of a function.
+
+\begin{proposition}[Procedure for Sketching the Plots of Functions]\hfil
+\begin{itemize}
+\item Find the $y$-intercept, this is the point $(0,f(0))$. Place this
+  point on your graph.
+\item Find candidates for vertical asymptotes, these are points where
+  $f(x)$ is undefined.
+\item Compute $f'(x)$ and $f''(x)$.
+\item Find the critical points, the points where $f'(x) = 0$ or
+  $f'(x)$ is undefined.
+\item Use the second derivative test to identify relative extrema and/or
+  find the intervals where your function is increasing/decreasing.
+  \clearpage
+\item Find the candidates for inflection points, the points where
+  $f''(x) = 0$ or $f''(x)$ is undefined.
+\item Identify inflection points and concavity.
+\item If possible find the $x$-intercepts, the points where $f(x) =
+  0$. Place these points on your graph.
+\item Find horizontal asymptotes.
+\item Determine an interval that shows all relevant behavior.
+\end{itemize}
+\cite{mooc}
+At this point you should be able to sketch the plot of your function.
+\end{proposition}
+
+Let's see this procedure in action. We'll sketch the plot of
+$2x^3-3x^2-12x$.  Following our guidelines above, we start by
+computing $f(0) = 0$.  Hence we see that the $y$-intercept is
+$(0,0)$. Place this point on your plot, see Figure~\ref{figure:CS1}. \cite{mooc}
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+	\begin{axis}[
+            domain=-2:4,
+            xmin=-2,
+            xmax=4,
+            ymax=25,
+            ymin=-25,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+         \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+        \end{axis}
+\end{tikzpicture}
+\caption{We start by placing the point $(0,0)$. \cite{mooc}}
+\label{figure:CS1}
+\end{figure}
+
+Note that there are no vertical asymptotes as our function is defined
+for all real numbers.  Now compute $f'(x)$ and $f''(x)$,
+\[
+f'(x) = 6x^2 -6x -12\qquad\text{and}\qquad f''(x) = 12x-6.
+\]
+
+The critical points are where $f'(x) = 0$, thus we need to solve $6x^2
+-6x -12 = 0$ for x. Write
+\begin{align*}
+6x^2 -6x -12 &= 0 \\
+x^2 - x -2 &=0\\
+(x-2)(x+1) &=0.
+\end{align*}
+Thus
+\[
+f'(2) = 0\qquad\text{and}\qquad f'(-1) = 0.
+\]
+Mark the critical points $x=2$ and $x=-1$ on your plot, see
+Figure~\ref{figure:CS2}. \cite{mooc}
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+	\begin{axis}[
+            domain=-2:4,
+            xmin=-2,
+            xmax=4,
+            ymax=25,
+            ymin=-25,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+         \addplot [dashed, penColor2] plot coordinates {(-1,-25) (-1,25)}; 
+         \addplot [dashed, penColor2] plot coordinates {(2,-25) (2,25)}; 
+         \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+        \end{axis}
+\end{tikzpicture}
+\caption{Now we add the critical points $x=-1$ and $x=2$. \cite{mooc}}
+\label{figure:CS2}
+\end{figure}
+
+Check the second derivative evaluated at the critical points. In this
+case,
+\[
+f''(-1) = -18 \qquad\text{and}\qquad f''(2) = 18,
+\]
+hence $x=-1$, corresponding to the point $(-1,7)$ is a relative maximum
+and $x=2$, corresponding to the point $(2,-20)$ is relative minimum of
+$f(x)$. Moreover, this tells us that our function is increasing on
+$[-2,-1)$, decreasing on $(-1,2)$, and increasing on $(2,4]$. Identify
+this on your plot, see Figure~\ref{figure:CS3}. \cite{mooc}
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+	\begin{axis}[
+            axis on top=true,
+            domain=-2:4,
+            xmin=-2,
+            xmax=4,
+            ymax=25,
+            ymin=-25,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(-2,-25) (-1,7)}; 
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(-1,7) (2,-20)}; 
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(2,-20) (4,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(-1,-25) (-1,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(2,-25) (2,25)}; 
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(-1,7)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(2,-20)};  %% closed hole
+          %\addplot [very thick, penColor, samples=100, smooth,domain=(-1.2:-.8)] {2*x^3-3*x^2-12*x};
+          %\addplot [very thick, penColor, samples=100, smooth,domain=(1.8:2.2)] {2*x^3-3*x^2-12*x};
+        \end{axis}
+\end{tikzpicture}
+\caption{We have identified the relative extrema of $f(x)$ and where this
+  function is increasing and decreasing. \cite{mooc}}
+\label{figure:CS3}
+\end{figure}
+
+
+The candidates for the inflection points are where $f''(x) = 0$, thus
+we need to solve $12x-6=0$ for $x$.  Write
+\begin{align*}
+12x-6 &=0\\
+x - 1/2 &=0\\
+x &=1/2.
+\end{align*}
+Thus $f''(1/2) = 0$. Checking points, $f''(0) = -6$ and $f''(1) = 6$.
+Hence $x=1/2$ is an inflection point, with $f(x)$ concave down to the
+left of $x=1/2$ and $f(x)$ concave up to the right of $x=1/2$. We can
+add this information to our plot, see Figure~\ref{figure:CS4}. \cite{mooc}
+
+Finally, in this case, $f(x) =2x^3-3x^2-12x$, we can find the
+$x$-intercepts. Write
+\begin{align*}
+2x^3-3x^2-12x &=0\\
+x(2x^2 -3x -12) &=0.\\
+\end{align*}
+Using the quadratic formula, we see that the $x$-intercepts of $f(x)$ are
+\[
+x = 0, \qquad x= \frac{3-\sqrt{105}}{4}, \qquad x= \frac{3+\sqrt{105}}{4}.
+\]
+Since all of this behavior as described above occurs on the interval
+$[-2,4]$, we now have a complete sketch of $f(x)$ on this interval,
+see the figure below. \cite{mooc}
+\begin{figure}[H]
+    \centering
+\begin{tikzpicture}
+	\begin{axis}[
+            axis on top=true,
+            domain=-2:4,
+            xmin=-2,
+            xmax=4,
+            ymax=25,
+            ymin=-25,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(-2,-25) (-1,7)}; 
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(-1,7) (2,-20)}; 
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(2,-20) (4,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(-1,-25) (-1,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(2,-25) (2,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(1/2,-25) (1/2,25)}; 
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(1/2,-6.5)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(-1,7)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(2,-20)};  %% closed hole
+          \addplot [very thick, penColor, samples=100, smooth,domain=(-1.5:3)] {2*x^3-3*x^2-12*x};
+        \end{axis}
+\end{tikzpicture}
+\caption{We identify the inflection point and note that the curve is
+  concave down when $x<1/2$ and concave up when $x>1/2$. \cite{mooc}}
+\label{figure:CS4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+	\begin{axis}[
+            axis on top=true,
+            domain=-2:4,
+            xmin=-2,
+            xmax=4,
+            ymax=25,
+            ymin=-25,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(-2,-25) (-1,7)}; 
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(-1,7) (2,-20)}; 
+          \addplot [->, line width=10, penColor!10!background] plot coordinates {(2,-20) (4,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(-1,-25) (-1,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(2,-25) (2,25)}; 
+          \addplot [dashed, penColor2] plot coordinates {(1/2,-25) (1/2,25)}; 
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(1/2,-6.5)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(-1,7)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(2,-20)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(-1.812,0)};  %% closed hole
+          \addplot [color=penColor,fill=penColor,only marks,mark=*] coordinates{(3.312,0)};  %% closed hole
+          \addplot [very thick, penColor, samples=100, smooth,domain=(-2:4)] {2*x^3-3*x^2-12*x};
+        \end{axis}
+\end{tikzpicture}
+\end{figure}
+\clearpage
+
+\begin{exercise}
+    ~\\\\\-\hspace{0.3cm} \textbf{
+        In Exercises 1-4, find all critical points and identify them as relative maximum points, relative minimum points, or neither.
+    }\cite{mooc}
+    \begin{enumerate} 
+        \item $y=x^2-x$
+        \item $y=2+3x-x^3$ 
+        \item $y=x^3-9x^2+24x$
+        \item $f(x) = |x^2 - 121|$
+        \item Let $f(x) =a x^2 + bx + c$ with $a\neq 0$. Show that $f(x)$ has exactly one critical point using the first derivative test. Give conditions on $a$ and $b$ which guarantee that the critical point will
+        be a maximum. 
+    \end{enumerate}
+    ~\\\\\-\hspace{0.3cm} \textbf{
+        In Exercises 6-9, Sketch the curves via the procedure outlined in this chapter. Clearly identify any interesting features, including relative maximum and minimum points, inflection points, asymptotes, and intercepts.
+    }\cite{mooc}
+    \begin{enumerate} 
+        \setcounter{enumi}{5}
+        \item $y= x^5 - x$
+        \item $y=2\sqrt{x} - x$
+        \item $y=x^5-5x^4+5x^3$
+        \item $y = x^2+ 1/x$
+    \end{enumerate}
+\end{exercise}

@@ -1,0 +1,170 @@
+\chapterimage{img/analytic.jpg} 
+\chapter{Evaluating Limits Analytically}
+\section{Properties of Limits}
+We didn't really need to look at all of the graphs or decimal values to know what was going to appen when $x$ get really close to some number. But it's important to go through the exercise because, typically, the answers get a lot more complicated. 
+
+Keep in mind that $\Lim{x\to c}f(x)$ does not depend on the value of $f(x)$. It may happen, however, that the limit is precisely $f(c)$. In such cases, the limit can be evaluated by \textbf{direct substitution}. That is,
+$$\Lim{x\to c}f(x)=f(c)$$
+
+There are also some simple algebraic rules of limits that you should know.
+
+\begin{theorem}[Properties of Limits]
+    Let $b$ and $c$ be real numbers, let $n$ be a positive integer, and let $f$ and $g$ be functions with the following limits.
+    $$\Lim{x\to c} f(x)=L\qquad \text{and} \qquad \Lim{x\to c}g(x)=K$$
+    \begin{enumerate}
+        \item $\Lim{x\to c}[bf(x)]=bL$
+        \item $\Lim{x\to c}[f(x)\pm g(x)]=L\pm K$
+        \item $\Lim{x\to c}[f(x)g(x)]=LK$
+        \item $\Lim{x\to c}\dfrac{f(x)}{g(x)}=\dfrac{L}{K},\qquad K\neq 0$
+        \item $\Lim{x\to c}[f(x)]^n=L^n$
+        \item $\Lim{x\to c}\sqrt[n]{x}=\sqrt[n]{c},\qquad c\in \mathbb{R}\text{ if $n$ is odd or $c>0$ if $n$ is even}$
+        \item $\Lim{x\to c}f(g(x))=f(\Lim{x\to c}g(x))=f(K)$
+    \end{enumerate}
+    \label{theorem:limit-laws}
+    \cite{ci}
+\end{theorem}
+\clearpage
+Let's do a few examples.
+
+\begin{example}
+    Find $\Lim{x\to 5}x^2$.
+    \begin{solution}
+        The approach is simple: Plug 5 for $x$, and you get 25.
+    \end{solution}
+\end{example}
+
+\begin{example}
+    Find $\Lim{x\to 3}x^3$.
+    \begin{solution}
+        Here the answer is 27.
+    \end{solution}
+\end{example}
+\begin{example}
+    Find $\Lim{x\to 5}[x^2+x^3]$.
+    \begin{solution}
+        \begin{align}
+            \Lim{x\to 5}[x^2+x^3]
+            &=\Lim{x\to 5}x^2+\Lim{x\to 5}x^3\\
+            &=25+125\\
+            &=150
+        \end{align}
+    \end{solution}
+\end{example}
+\begin{example}
+    Find $\Lim{x\to 5}[(x^2+1)\sqrt{x-1}]$.
+    \begin{solution}
+        \begin{align}
+            \Lim{x\to 5}[(x^2+1)\sqrt{x-1}]
+            &=\Lim{x\to 5}(x^2+1)\Lim{x\to 5}\sqrt{x-1}\\
+            &=52
+        \end{align}
+    \end{solution}
+\end{example}
+
+So far, so good. All so to find the limit of a simple polynomial is plug in the number that the variable is approaching and you get the answer. Natually, this may not be the case.
+
+\section{A Strategy for Finding Limits}
+
+\begin{theorem}[Functions That Agree At All But One Point]
+    ~\\
+    Let $c$ be a real number and let $f(x)=g(x)$ for all $x\neq c$ in an open interval containing $c$. If the limit of $g(x)$ as $x$ approaches $c$ exists, then the limit of $f(x)$ also exists and
+    $$\Lim{x\to c}f(x)=\Lim{x\to c}g(x)$$
+    \label{all but one point}
+    \\\cite{ci}
+\end{theorem}
+
+\begin{example}
+    Find $\Lim{x\to 1}\dfrac{x^3-1}{x-1}$. \cite{ci}
+    \begin{solution}
+        Let $f(x)=\dfrac{x^3-1}{x-1}$. By factoring and dividing out like factors, you can rewrite $f$ as
+        $$f(x)=\dfrac{(x-1)(x^2+x+1)}{(x-1)}=x^2+x+1=g(x),\qquad x\neq 1$$
+
+        So, for all $x$-values other than $x=1$, the functions $f$ and $g$ agree. Because $\Lim{x\to 1}g(x)$ exists, you can apply Theorem \ref{all but one point} to conclude that $f$ and $g$ have the same limit at $x=1$.
+        \begin{align*}
+            \Lim{x\to 1}\dfrac{x^3-1}{x-1}
+            &=\Lim{x\to 1}\dfrac{(x-1)(x^2+x+1)}{(x-1)}\\
+            &=\Lim{x\to 1}(x^2+x+1)\\
+            &=1^2+1+1\\
+            &=3
+        \end{align*}
+    \end{solution}
+\end{example}
+
+\section{Dividing Out and Rationalizing Techniques}
+
+\begin{example}
+    Find $\Lim{x\to -3}\dfrac{x^2+x-6}{x+3}$. \cite{ci}
+    \begin{solution}
+        \begin{align*}
+            \Lim{x\to -3}\dfrac{x^2+x-6}{x+3}
+            &=\Lim{x\to -3}\dfrac{(x+3)(x-2)}{(x+3)}\\
+            &=\Lim{x\to -3}(x-2)\\
+            &=-5
+        \end{align*}
+    \end{solution}
+    \label{dividing out}
+\end{example}
+In Example \ref{dividing out}, direct substitution produced the meaningless fractional form $\dfrac{0}{0}$. An expression such as $\dfrac{0}{0}$ is called an \B{indeterminate form} because you cannot (from the form alone) determine the limit. When you try to evaluate a limit and encounter this form, remember that you must rewrite the fraction so that the new denominator does not have 0 as its limit. One way to do this is to \I{divide out like factors}, as shown in Example \ref{dividing out}.
+
+A second way is to \I{rationalize the numerator}, as shown in Example \ref{rationalize}.\\
+
+\begin{example}
+    Find $\Lim{x\to 0}\dfrac{\sqrt{x+1}-1}{x}$. \cite{ci}
+    \begin{solution}
+        By direst substitution, you obtain $\dfrac{0}{0}$. In this case, you can rewrite the fraction by rationalizing the numerator.
+        \begin{align*}
+            \Lim{x\to 0}\dfrac{\sqrt{x+1}-1}{x}
+            &=\Lim{x\to 0}\left(\dfrac{\sqrt{x+1}-1}{x}\right)\left(\dfrac{\sqrt{x+1}+1}{\sqrt{x+1}+1}\right)\\
+            &=\Lim{x\to 0}\dfrac{(x+1)-1}{x(\sqrt{x+1}+1)}\\
+            &=\Lim{x\to 0}\dfrac{1}{\sqrt{x+1}+1}\\
+            &=\dfrac{1}{1+1}\\
+            &=\dfrac{1}{2}
+        \end{align*}
+    \end{solution}
+    \label{rationalize}
+\end{example}
+
+\section{The Squeeze Theorem}
+The last thing you need to know for this chapter is the \B{Squeeze Theorem}. It concerns the limit of a function that is squeezed between two other functions, each of which has the same limit at a given $x$-value, as shown in Figure \ref{sqeeze}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            nejes=-1.5:1.5 -1.5:1.5,xlabel=$x$, ylabel=$y$
+                ]
+        \addplot[black, very thick] {x*x*sin(4/\x r)} node[pos=0.9, above left, black]{$f$};
+        \addplot[penColor, very thick] {x*x} node[pos=0.8, above left, black]{$g$};
+        \addplot[penColor2, very thick] {-x*x} node[pos=0.8, below left, black]{$h$};
+        \addplot [soldot] coordinates{(0,0)} node[pos=-0.2, below left,black] {$c$};
+        \end{axis}
+        \end{tikzpicture}
+    \caption{The Squeeze Theorem}
+    \label{sqeeze}
+\end{figure}
+
+\begin{theorem}[The Squeeze Theorem]~\\
+    If $h(x)\leq f(x)\leq g(x)$ for all $x$ in n an open interval containing $c$, except possibly at $c$ itself, and if $\Lim{x\to c}h(x)=L=\Lim{x\to c}g(x)$, then $\Lim{x\to c}f(x)$ exists and is equal to $L$.
+    \\\cite{ci}
+\end{theorem}
+
+\begin{exercise}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 1–5, find the limit.
+    }\cite{ci}\\
+    \begin{enumerate} 
+		\item $\Lim{x\to 2} x^3$
+		\item $\Lim{x\to 1} \dfrac{x}{x^2+4}$
+		\item $\Lim{x\to 0} \dfrac{\dfrac{1}{3+x}-\dfrac{1}{3}}{x}$
+		\item $\Lim{x\to 4} \dfrac{\sqrt{x+5}-3}{x-4}$
+		\item $\Lim{\Delta x\to 0} \dfrac{(x+\Delta x)^3-x^3}{\Delta x}$
+    \end{enumerate}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 6–7, use the Squeeze Theorem to find $\Lim{x\to c}f(x)$ 
+    }\cite{ci}\\
+    \begin{enumerate}
+        \setcounter{enumi}{5}
+        \item $c=0;\quad 4-x^2\leq f(x)\leq 4+x^2$
+        \item $c=a;\quad b-|x-a|\leq f(x)\leq b+|x-a|$
+    \end{enumerate}
+\end{exercise}

@@ -1,0 +1,269 @@
+\chapterimage{img/motion.jpg} 
+\chapter{Motion and Related Rates}
+This chapter deals with two different types of word problems that involve motion: related rates and the relationship between velocity and acceleration of a particle. The subject matter might seem acrane, but once you get the hang of them, you'll see that these aren't so hard, either.
+
+\section{Related Rates}
+The idea behind these problems is very simple. In a typical problem, you'll be given an equation relating two or more variables. These variables will change with respect to time, and you'll use derivatives to determine how the rates of change are related. Sounds easy, soesn't it?\\
+
+\begin{proposition}[Guidelines for Related Rates Problems]\hfil
+    \begin{itemize}
+    \item\textbf{Draw a picture.} If possible, draw a schematic picture with all the relevant information. 
+    \item\textbf{Find an equation.} We want an equation that relates all relevant functions. 
+    \item\textbf{Differentiate the equation.} Here we will often use
+      implicit differentiation.
+    \item\textbf{Evaluate the equation at the desired values.}  The known values
+      should let you solve for the relevant rate.
+    \end{itemize}
+    \cite{mooc}
+\end{proposition}
+
+Let's see some examples. \cite{mooc} \\
+
+\begin{example}
+    A circular pool of water is expanding at the rate of $16\pi m^2/s$. At what rate is the radius expanding when the radius is 4 meters?
+
+    Hint: What equation relates the area of a circle to its radius? $A=\pi r^2$.  \cite{ap}\\
+    \begin{solution}~\\
+        \textbf{Find an equation} and \textbf{differentiate the equation} with respect to $t$ (time).
+        $$\dfrac{dA}{dt}=2\pi r\dfrac{dr}{dt}$$
+        In this equation, $\D\dfrac{dA}{dt}$ represents the rate at which the area is changing, and $\D\dfrac{dr}{dt}$ is the rate at which the radius is changing. The simplest way to explain this is that whenever you have a variable in an equation ($r$, for example), the derivative with respect to time $\D\left(\dfrac{dr}{dt}\right)$ represents the rate at which that variable is increasing or decreasing.
+        \\\\
+        Now we can \textbf{Evaluate the equation at the desired values}, that is, the rate of change of the area and for the radius.
+        $$16\pi =2\pi (4)\dfrac{dr}{dt}$$
+        Solving for $\D\dfrac{dr}{dt}$, we get
+        $$16\pi =8\pi \dfrac{dr}{dt}\text{ and }\dfrac{dr}{dt}=2$$
+        The radius is changing at a rate of $2m/s$. It's important ot note that this is the rate only when the radius is 4 meters. As the circle gets bigger and bigger, the radius will expand at a slower and sloer rate.
+    \end{solution}
+\end{example}
+
+\begin{example}
+    \label{exam:receding airplane}
+    A plane is flying directly away from you at $500$ mph at an altitude of
+    $3$ miles.  How fast is the plane's distance from you increasing at the
+    moment when the plane is flying over a point on the ground $4$ miles
+    from you? \cite{mooc}\\
+    
+    \begin{solution}
+    To start, \textbf{draw a picture}.
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+        \draw[penColor2, dashed, very thick] (0,0) -- (5,4);
+        %\draw[penColor, dashed, very thick] (0,0) -- (0,4);
+        \draw[penColor, dashed, very thick] (5,0) -- (5,4);
+        \draw[penColor, dashed, very thick] (0,0) -- (5,0);
+        \draw[->,penColor, very thick] (1,4) -- (6,4);
+        \draw [penColor, fill] (5,4) circle [radius=.07];
+        \node [left,penColor] at (0,0) {\scalebox{3} \Ladiesroom};
+        \node [right,penColor] at (6,4) {\scalebox{3}{\ding{40}}};
+        \node [right,penColor] at (5,2) {$3$ miles};
+        \node [above,penColor] at (3,4) {$p'(t) = 500$ mph};
+        \node [above,penColor] at (5,4) {$p(t)$};
+        \node [below,penColor] at (2.5,0) {$4$ miles};
+        \node [left,penColor2] at (2.4,2) {$s(t)$ miles};
+        \end{tikzpicture}
+    \end{figure}
+    ~\\Next we need to \textbf{find an equation}. By the Pythagorean Theorem
+    we know that
+    \[
+    p^2+3^2=s^2.
+    \] 
+    Now we \textbf{differentiate the equation}. Write
+    \[
+    2p(t)p'(t)  = 2s(t) s'(t).
+    \] 
+    Now we'll \textbf{evaluate the equation at the desired values}.  We
+    are interested in the time at which $p(t)=4$ and $p'(t) =
+    500$. Additionally, at this time we know that $4^2+9=s^2$, so
+    $s(t)=5$.  Putting together all the information we get
+    \[
+    2(4)(500)=2(5)s'(t),
+    \]
+    thus $s'(t)=400$ mph.
+    \end{solution}
+\end{example}
+\clearpage
+\begin{example}
+    You are inflating a spherical balloon at the rate of 7 cm${}^3$/sec.  How
+    fast is its radius increasing when the radius is 4 cm? \cite{mooc}\\
+    
+    \begin{solution}
+    To start, \textbf{draw a picture}.\\
+    
+    \begin{figure}[H]
+        \centering
+    \begin{tikzpicture}
+    %\draw[penColor!50!background,very thick] (0,0) ellipse (2 and 1);
+    \draw[very thick,penColor!20!background] (2,0) arc (0:180:2 and .7);% top half of ellipse
+    \draw [penColor, very thick] (0,0) circle [radius=2];
+    \draw[penColor2, dashed, very thick] (0,0) -- (2,0);
+    \node [below,penColor2] at (1,0) {$r=4$ cm};
+    \draw[very thick,penColor] (-2,0) arc (180:360:2 and .7);% bottom half of ellipse
+    \node [penColor,left] at (-1.5,1.42) {$\dd[V]{t} = 7$ cm$^3$/sec};
+    \node [penColor, right] at (1.5,-1.42) {$V = \frac{4\pi r^3}{3}$ cm$^3$};
+    \end{tikzpicture}
+\end{figure}
+    ~\\
+    Next we need to \textbf{find an equation}.  Thinking of the variables
+    $r$ and $V$ as functions of time, they are related by the equation
+    \[
+    V(t)=\frac{4\pi (r(t))^3}{3}.
+    \]
+    
+    Now we need to \textbf{differentiate the equation}.  Taking the
+    derivative of both sides gives 
+    \[
+    \dd[V]{t}=4\pi (r(t))^2\cdot r'(t).
+    \]  
+    Finally we \textbf{evaluate the equation at the desired values}. Set
+    $r(t)= 4$ cm and $\dd[V]{t}$ = 7 cm$^3$/sec. Write 
+    \begin{align*}
+    7 &=4\pi 4^2r'(t),\\
+    r'(t) &=7/(64\pi)~\text{cm/sec}.
+    \end{align*}
+    \end{solution}
+\end{example}
+    
+    \begin{example} Water is poured into a conical container at the rate of 10
+    cm${}^3$/sec.  The cone points directly down, and it has a height of
+    30 cm and a base radius of 10 cm.  How fast is the water level rising
+    when the water is 4 cm deep?  \cite{mooc}\\
+    
+    \begin{solution}
+    To start, \textbf{draw a picture}.
+    
+    \begin{figure}[H]
+        \centering
+    \begin{tikzpicture}
+    \draw[penColor,very thick] (0,4) ellipse (4 and 1);
+    \draw[very thick,penColor!20!background] (2,2) arc (0:180:2 and .5);% top half of ellipse
+    \draw[very thick,penColor] (-2,2) arc (180:360:2 and .5);% bottom half of ellipse
+    \draw[penColor, very thick] (3.97,3.85) -- (0,0);
+    \draw[penColor, very thick] (-3.97,3.85) -- (0,0);
+    \draw[penColor, very thick] (0,4) -- (4,4);
+    \draw[penColor!50!background, very thick] (0,2) -- (2,2);
+    \draw[->,line width=0.4cm, penColor!20!background] (0,6) -- (0,4.25);
+    \draw[dashed, penColor2, very thick] (2.1,0) -- (2.1,2);
+    \draw[dashed, penColor, very thick] (-4.1,0) -- (-4.1,4);
+    \node[right, penColor] at (.4,5.6) {$\dd[V]{t} = 10$ cm$^3$/sec};
+    \node[below, penColor] at (2,4) {$10$ cm};
+    \node[above, penColor] at (1,2) {$r$ cm};
+    \node[right, penColor2] at (2.1,1) {$h(t) = 4$ cm};
+    \node[left, penColor] at (-4.1,2) {$30$ cm};
+    \end{tikzpicture}
+\end{figure}
+    
+    Note, no attempt was made to draw this picture to scale, rather we
+    want all of the relevant information to be available to the
+    mathematician.
+    
+    Now we need to \textbf{find an equation}. The formula for the volume of a cone tells us that 
+    \[
+    V = \frac{\pi}{3} r^2 h.
+    \]
+    
+    Now we must \textbf{differentiate the equation}. We should use implicit differentiation, and treat each of the variables as functions of $t$. Write
+    \begin{equation}\label{equation:cone/water}
+    \dd[V]{t} = \frac{\pi}{3}\left(2rh \dd[r]{t} + r^2 \dd[h]{t}\right).
+    \end{equation}
+    
+    At this point we \textbf{evaluate the equation at the desired values}.
+    At first something seems to be wrong, we do not know $\dd[r]{t}$.
+    However, the dimensions of the cone of water must have the same
+    proportions as those of the container.  That is, because of similar
+    triangles, 
+    \[
+    \frac{r}{h}=\frac{10}{30} \qquad\text{so}\qquad r={h/3}.
+    \]  
+    In particular, we see that when $h = 4$, $r=4/3$ and 
+    \[
+    \dd[r]{t} = \frac{1}{3}\cdot \dd[h]{t}.
+    \]
+    Now we can \textbf{evaluate the equation at the desired
+      values}. Starting with Equation~\ref{equation:cone/water}, we plug
+    in $\dd[V]{t} = 10$, $r = 4/3$, $\dd[r]{t} = \frac{1}{3}\cdot \dd[h]{t}$
+    and $h=4$. Write
+    \begin{align*}
+    10 &= \frac{\pi}{3}\left(2\cdot \frac{4}{3}\cdot 4 \cdot\frac{1}{3}\cdot\dd[h]{t} + \left(\frac{4}{3}\right)^2 \dd[h]{t}\right)\\
+    10 &= \frac{\pi}{3}\left(\frac{32}{9}\dd[h]{t} + \frac{16}{9} \dd[h]{t}\right)\\
+    10 &= \frac{16\pi}{9}\dd[h]{t}\\
+    \frac{90}{16\pi} &= \dd[h]{t}.
+    \end{align*}
+    Thus, $\dd[h]{t}=\frac{90}{16\pi}$ cm/sec.
+    \end{solution}
+\end{example}
+
+\section{Position, Velocity, and Acceleration}
+If you have a function that gives you the position of an object (usually a "particle") at a specified time, then the derivative of that function with respect to time is the velocity of the object, and the second derivative is the acceleration. These are usually represented by the following: \cite{ap}
+\begin{align*}
+    p(t) &= \text{position with respect to time.}\\
+    v(t) &= p'(t) = \text{velocity with respect to time.}\\
+    s(t) &= |v(t)| = \text{speed, the absolute value of velocity.}\\
+    a(t) &=v'(t) = \text{acceleration with respect to time.}
+\end{align*}
+Let's see an example.
+
+\begin{example}
+    The Mostar bridge in Bosnia is $25$ meters above the river
+    Neretva. For fun, you decided to dive off the bridge. Your position
+    $t$ seconds after jumping off is
+    $$
+    p(t) = -4.9t^2 + 25.
+    $$
+    When do you hit the water? What is your instantaneous velocity as you
+    enter the water?  What is your average velocity during your dive? \cite{mooc}
+    \begin{figure}[H]
+        \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=0,xmax=3,ymin=0,ymax=30,
+                axis lines=center,
+                xlabel=$t$, ylabel=$p$,
+                every axis y label/.style={at=(current axis.above origin),anchor=south},
+                every axis x label/.style={at=(current axis.right of origin),anchor=west},
+              ]        
+              \addplot [very thick, penColor,smooth] {-4.9*x^2+25};
+            \end{axis}
+    \end{tikzpicture}
+    \caption{Here we see a plot of $p(t) = -4.9t^2 + 25$. Note, time is on
+      the $t$-axis and vertical height is on the $p$-axis. \cite{mooc}}
+    \end{figure}
+    \begin{solution}
+    To find when you hit the water, you must solve
+    \[
+    -4.9t^2 + 25 = 0
+    \]
+    Write
+    \begin{align*}
+    -4.9t^2 &= -25 \\
+    t^2 &\approx 5.1 \\ 
+    t &\approx 2.26.
+    \end{align*}
+    Hence after approximately $2.26$ seconds, you gracefully enter the river.
+    
+    Your instantaneous velocity is given by $p'(t)$. Write
+    \[
+    p'(t) = -9.8t,
+    \]
+    so your instantaneous velocity when you enter the water is
+    approximately $-9.8\cdot 2.26\approx -22$ meters per second.
+    
+    Finally, your average velocity during your dive is given by
+    \[
+    \frac{p(2.26) -p(0)}{2.26} \approx \frac{0-25}{2.26} =
+    -11.06~\text{meters per second}.
+    \]
+\end{solution}
+\end{example}
+
+\begin{exercise}~\\
+    \begin{enumerate} 
+        \item Sand is poured onto a surface at 15 cm${}^3$/sec, forming a conical pile whose base diameter is always equal to its altitude. How fast is the altitude of the pile increasing when the pile is 3 cm high? \cite{mooc}
+        \item A balloon is at a height of 50 meters, and is rising at the constant rate of 5 m/sec.  A bicyclist passes beneath it, traveling in a straight line at the constant speed of 10 m/sec. How fast is the distance between the bicyclist and the balloon increasing 2 seconds later? \cite{mooc}
+        \item A ladder 13 meters long rests on horizontal ground and leans against a vertical wall.  The foot of the ladder is pulled away from the wall at the rate of 0.6 m/sec.  How fast is the top sliding down the wall when the foot of the ladder is 5 m from the wall? \cite{mooc}
+        \item A woman 5 ft tall walks at the rate of 3.5 ft/sec away from a streetlight that is 12 ft above the ground.  At what rate is the tip of her shadow moving?  At what rate is her shadow lengthening? \cite{mooc}
+        \item The position of a particle in meters is given by $1/t^3$ where is $t$ is measured in seconds. What is the acceleration of the particle after $4$ seconds? \cite{mooc}
+        \item On the Earth, the position of a ball dropped from a height of 100 meters is given by \[-4.9t^2+100,\qquad\text{(ignoring air resistance)}\] where time is in seconds.  On the Moon, the position of a ball dropped from a height of 100 meters is given by \[-0.8t^2+100,\] where time is in seconds.  How long does it take the ball to hit the ground on the Earth? What is the speed immediately before it hits the ground? How long does it take the ball to hit the ground on the Moon? What is the speed immediately before it hits the ground? \cite{mooc}
+    \end{enumerate}
+\end{exercise}

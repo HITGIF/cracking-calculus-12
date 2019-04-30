@@ -1,0 +1,37 @@
+\documentclass[11pt,fleqn,openany]{book}
+\input{structure}
+
+\addbibresource{main.bib}
+\begin{document}
+
+% \pagecolor[HTML]{29434e}
+% \color{white}
+    \input{src/others/cover.tex}
+    \input{src/others/copyright.tex}
+    \input{src/others/toc.tex}
+    \part{Prerequisites}
+        \input{src/prerequisites/linear_and_piecewise_functions.tex}
+        \input{src/prerequisites/polynomial_and_rational_functions.tex}
+        \input{src/prerequisites/combination_of_functions.tex}
+        \input{src/prerequisites/inverse_functions.tex}
+    \part{Limits}
+        \input{src/limits/introduction_to_limits.tex}
+        \input{src/limits/evaluating_limits_analytically.tex}
+        \input{src/limits/continuity.tex}
+        \input{src/limits/limits_and_asymptotes.tex}
+    \part{Differentiation}
+        \input{src/differentiation/definition_of_the_derivative.tex}
+        \input{src/differentiation/basic_differentiation.tex}
+        \input{src/differentiation/implicit_differentiation.tex}
+    \part{Differential Calculus Applications}
+        \input{src/differentiation_app/basic_applications_of_the_derivative.tex}
+        \input{src/differentiation_app/maxima_and_minima.tex}
+        \input{src/differentiation_app/curve_sketching.tex}
+        \input{src/differentiation_app/motion_related_rates.tex}
+        \input{src/differentiation_app/optimization.tex}
+    \part*{Answer Key}
+        \input{src/others/answers.tex}
+    \part*{Bibliography}
+        \input{src/others/bibliography.tex}
+
+\end{document}

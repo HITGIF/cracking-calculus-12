@@ -1,0 +1,301 @@
+\chapterimage{img/difdef.jpg} 
+\chapter{Definition of the Derivative}
+
+The main tool that you'll use in differential calculus is called the \B{derivative}. All of the problems that you'll encounter in differential calculus make use of the derivative, so your goal should be to become an expert at finding, or "taking", derivatives by the end of the next chapter. However, before you learn a simple waya to take the derivative, your teacher will probably make you learn how derivatives are calculated by teaching you something called the "Definition of the Derivative".
+
+\section{Deriving the Formula}
+The best way to understand the definition of the derivative is to start by looking at the simplest continuous function: a line. As you should recall, you can determine the slope of a line by taking two points on that line and plugging then into the slope formula.
+
+$$m=\dfrac{y_2-y_1}{x_2-x_1}\qquad m\text{ stands for slope.}$$
+
+Now for a few change in notation. Instead of calling the $x$-coordinates $x_1$ and $x_2$, we're going to call them $x$ and $x+h$, where $h$ is the difference between the two $x$-coordinates. Second, instead of using $y_1$ and $y_2$, we use $f(x)$ and $f(x+h)$. 
+
+\section{The Slope of a Curve}
+Suppose that instead of finding the slope of a line, we wanted to find the slope of a curve. Here the slope formula no longer works because the distance from one point to the other is along a curve, not a strait line. But we could find the approximate slope if we took the slope of the line between the two points. This is called a \B{secant line}.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                domain=0:2, range=0:6,ymax=6,ymin=0,
+                axis lines =left, xlabel=$x$, ylabel=$y$,
+                every axis y label/.style={at=(current axis.above origin),anchor=south},
+                every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                xtick={1,1.666}, ytick={1,3},
+                xticklabels={$x$,$x+h$}, yticklabels={$f(x)$,$f(x+h)$},
+                axis on top,
+              ]         
+            \addplot [very thick, penColor, domain=(0:2)] {-1.994+2.994*x};   
+            \addplot [textColor,dashed] plot coordinates {(1,0) (1,1)};
+            \addplot [textColor,dashed] plot coordinates {(0,1) (1,1)};
+            \addplot [textColor,dashed] plot coordinates {(0,3) (1.666,3)};
+            \addplot [textColor,dashed] plot coordinates {(1.666,0) (1.666,3)};
+            \addplot [very thick,black, smooth,domain=(0:1.833)] {-1/(x-2)};
+            \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1.666,3)};  %% closed hole 
+            \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,1)};  %% closed hole          
+            \end{axis}
+    \end{tikzpicture}
+    \caption{Secant lines can be found by connecting two points ont he curve.}
+    \label{figure:secant-dfn}
+\end{figure}
+
+The slope of the secant line is sometimes called a \B{difference quotient}.
+
+\begin{definition}[Difference Quotient]
+    The difference quotient of a function $f$ with respect to $x$ and $x+h$ in its domain is
+    $$\displaystyle\frac{f(x+h) - f(x)}{h}.$$
+    \\\cite{ap}
+\end{definition}
+
+\section{The Secant and the Tangent}
+As you can see in Figure \ref{figure:informal-tangent}, the farther apart the two points are, the less the slope corresponds to the slope of the curve. Conversely, the close the two points are,  the more accurate the approximation is.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+        \begin{axis}[
+                domain=0:6, range=0:7,
+                ymin=-.2,ymax=7,
+                width=\textwidth,
+                height=7cm, %% Hard coded height! Moreover this effects the aspect ratio of the zoom--sort of BAD
+                axis lines=none,
+              ]   
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(.8,1.6) (2.834,5)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(2.834,5) (4.166,5)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(1.2,1.6) (4.166,5)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(.8,1.6) (1.2,1.6)} \closedcycle; %% zoom fill
+    
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(3.3,3.6) (5.334,5)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(5.334,5) (6.666,5)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(3.7,3.6) (6.666,5)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(3.3,3.6) (3.7,3.6)} \closedcycle; %% zoom fill
+              
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(3.7,2.4) (6.666,1)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(3.3,2.4) (3.7,2.4)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(3.3,2.4) (5.334,1)} \closedcycle; %% zoom fill          
+              \addplot [draw=none, fill=background] plot coordinates {(5.334,1) (6.666,1)} \closedcycle; %% zoom fill
+              
+    
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(.8,.4) (2.834,1)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=textColor!10!background] plot coordinates {(2.834,1) (4.166,1)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(1.2,.4) (4.166,1)} \closedcycle; %% zoom fill
+              \addplot [draw=none, fill=background] plot coordinates {(.8,.4) (1.2,.4)} \closedcycle; %% zoom fill
+    
+              \addplot[very thick,penColor, smooth,domain=(0:1.833)] {-1/(x-2)};
+              \addplot[very thick,penColor, smooth,domain=(2.834:4.166)] {3.333/(2.050-.3*x)-0.333}; %% 2.5 to 4.333
+              %\addplot[very thick,penColor, smooth,domain=(5.334:6.666)] {11.11/(1.540-.09*x)-8.109}; %% 5 to 6.833
+              \addplot[very thick,penColor, smooth,domain=(5.334:6.666)] {x-3}; %% 5 to 6.833
+              
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,1)};  %% point to be zoomed
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(3.5,3)};  %% zoomed pt 1
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(6,3)};  %% zoomed pt 2
+    
+              \addplot [->,textColor] plot coordinates {(0,0) (0,6)}; %% axis
+              \addplot [->,textColor] plot coordinates {(0,0) (2,0)}; %% axis
+              
+              \addplot [textColor!50!background] plot coordinates {(.8,.4) (.8,1.6)}; %% box around pt
+              \addplot [textColor!50!background] plot coordinates {(1.2,.4) (1.2,1.6)}; %% box around pt
+              \addplot [textColor!50!background] plot coordinates {(.8,1.6) (1.2,1.6)}; %% box around pt
+              \addplot [textColor!50!background] plot coordinates {(.8,.4) (1.2,.4)}; %% box around pt
+              
+              \addplot [textColor!50!background] plot coordinates {(2.834,1) (2.834,5)}; %% zoomed box 1
+              \addplot [textColor!50!background] plot coordinates {(4.166,1) (4.166,5)}; %% zoomed box 1
+              \addplot [textColor!50!background] plot coordinates {(2.834,1) (4.166,1)}; %% zoomed box 1
+              \addplot [textColor!50!background] plot coordinates {(2.834,5) (4.166,5)}; %% zoomed box 1
+    
+              \addplot [textColor] plot coordinates {(3.3,2.4) (3.3,3.6)}; %% box around zoomed pt
+              \addplot [textColor] plot coordinates {(3.7,2.4) (3.7,3.6)}; %% box around zoomed pt
+              \addplot [textColor] plot coordinates {(3.3,3.6) (3.7,3.6)}; %% box around zoomed pt
+              \addplot [textColor] plot coordinates {(3.3,2.4) (3.7,2.4)}; %% box around zoomed pt
+    
+              \addplot [textColor] plot coordinates {(5.334,1) (5.334,5)}; %% zoomed box 2
+              \addplot [textColor] plot coordinates {(6.666,1) (6.666,5)}; %% zoomed box 2
+              \addplot [textColor] plot coordinates {(5.334,1) (6.666,1)}; %% zoomed box 2
+              \addplot [textColor] plot coordinates {(5.334,5) (6.666,5)}; %% zoomed box 2
+    
+              \node at (axis cs:2.2,0) [anchor=east] {$x$};
+              \node at (axis cs:0,6.6) [anchor=north] {$y$};
+            \end{axis}
+    \end{tikzpicture}
+    \caption{Given a function $f(x)$, if one can ``zoom in''
+    on $f(x)$ sufficiently so that $f(x)$ seems to be a straight line,
+    then that line is the \textbf{tangent line} to $f(x)$ at the point
+    determined by $x$. \cite{mooc}}
+    \label{figure:informal-tangent}
+\end{figure}
+
+In fact, there is one line, called the \B{tangent line}, that touches the curve at exactly one point. The slope of the tangentline is equal to the slope of the curve at exactly this point. The object of using the above formula, therefore, is to shrink $h$ down to an infinitestimally small amount. If we do that, then the difference between $(x+h)$ and $x$ would be a point.
+
+Graphically, it looks like the following:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                domain=0:2, range=0:6,ymax=6,ymin=0,
+                axis lines =left, xlabel=$x$, ylabel=$y$,
+                every axis y label/.style={at=(current axis.above origin),anchor=south},
+                every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                xtick={1,1.666}, ytick={1,3},
+                xticklabels={$x$,$x+h$}, yticklabels={$f(x)$,$f(x+h)$},
+                axis on top,
+              ]         
+              \addplot [penColor2!15!background, domain=(0:2)] {-3.348+4.348*x};
+              \addplot [penColor2!32!background, domain=(0:2)] {-2.704+3.704*x};
+              \addplot [penColor2!49!background, domain=(0:2)] {-1.994+2.994*x};         
+              \addplot [penColor2!66!background, domain=(0:2)] {-1.326+2.326*x}; 
+              \addplot [penColor2!83!background, domain=(0:2)] {-0.666+1.666*x};
+          \addplot [textColor,dashed] plot coordinates {(1,0) (1,1)};
+              \addplot [textColor,dashed] plot coordinates {(0,1) (1,1)};
+              \addplot [textColor,dashed] plot coordinates {(0,3) (1.666,3)};
+              \addplot [textColor,dashed] plot coordinates {(1.666,0) (1.666,3)};
+              \addplot [very thick,penColor, smooth,domain=(0:1.833)] {-1/(x-2)};
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1.666,3)};  %% closed hole          
+              \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,1)};  %% closed hole          
+              \addplot [very thick,penColor2, smooth,domain=(0:2)] {x};
+            \end{axis}
+    \end{tikzpicture}
+    \caption{Tangent lines can be found as the limit of secant lines. \cite{mooc}}
+    \label{figure:limit-dfn}
+\end{figure}
+
+How do we perform this shrinking act? By using the limits we just discussed. We set up a limit during which $h$ approaches zero, which is the definition of the derivative.
+
+\begin{definition}[Derivative]
+    The \textbf{derivative} of $f(x)$ is the function
+    $$
+    \ddx f(x) = \Lim{h\to 0} \frac{f(x+h) - f(x)}{h}.
+    $$
+    If this limit does not exist for a given value of $x$, then $f(x)$ is not \textbf{differentiable} at $x$.
+\\\cite{mooc}
+\end{definition}
+The derivative may also appear in other forms, but all means the same thing.
+\begin{definition}[Derivative Notations]
+    There are several different notations for the derivative, we'll mainly
+    use
+    $$\ddx f(x) = f'(x).$$
+    If one is working with a function of a variable other than $x$, say $t$ we write
+    $$\dd{t} f(t) = f'(t).$$
+    However, if $y = f(x)$, $\dydx$, $\dot{y}$, and $D_x f(x)$ are
+    also used.
+\\\cite{mooc}
+\end{definition}
+
+\begin{example}
+    Compute $\displaystyle\ddx (x^3 + 1).$ \\
+    \begin{solution}
+    Using the definition of the derivative,
+    \begin{align*}
+    \ddx f(x) &= \Lim{h\to 0}\frac{(x+h)^3 + 1 - (x^3 +1)}{h}\\
+    &= \Lim{h\to 0}\frac{x^3+3x^2h+3xh^2 + h^3 + 1 - x^3 -1}{h}\\
+    &= \Lim{h\to 0}\frac{3x^2h+3xh^2 + h^3}{h}\\
+    &= \Lim{h\to 0}(3x^2+3xh + h^2)\\
+    &= 3x^2.
+    \end{align*}
+    \end{solution}
+\end{example}
+
+Next we will consider the derivative a function that is not continuous on $\R$.\\
+
+\begin{example}
+Compute$\displaystyle\dd t \frac{1}{t}.$\\
+    \begin{solution}
+    Using the definition of the derivative,
+    \begin{align*}
+    \dd{t}\frac{1}{t}&=\Lim{ h\to0}\frac{\frac{1}{t+ h} - \frac{1}{t}}{h} \\
+    &=\Lim{h\to0}\frac{\frac{t}{t(t+ h)} - \frac{t+ h}{t(t+ h)}}{h} \\
+    &=\Lim{h\to0}\frac{\frac{t-(t+ h)}{t(t+ h)}}{h} \\
+    &=\Lim{h\to0}\frac{t-t- h}{t(t+ h) h} \\
+    &=\Lim{h\to0}\frac{- h}{t(t+ h) h} \\
+    &=\Lim{h\to0}\frac{-1}{t(t+ h)}\\
+    &=\frac{-1}{t^2}.
+    \end{align*}
+    This function is differentiable at all real numbers except for $t=0$.
+    \end{solution}
+\end{example}
+
+\clearpage
+\section{Differentiability}
+One of the important requirements for differentiability of a function is that the \B{function is continuous}. But, even if a function is continuous at a point, the functiuon is not necessarilly differentiable there. Check out the graph below.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                ejes=-3:3 -1:3,xlabel=$x$, ylabel=$y$
+            ]
+            \addplot [very thick, penColor, smooth] {abs(x)};
+            \draw[dashed, black, thick] (axis cs:-1,-2) -- (axis cs:1,2);
+            \draw[dashed, black, thick] (axis cs:-1,2) -- (axis cs:1,-2);
+        \end{axis}
+    \end{tikzpicture}
+    \caption{A plot of $|x|$}
+    \label{plot:cusp}
+\end{figure}
+
+If a function has a \B{"sharp turn"}, you can draw more than one tangent line at that point, and because the slopes of these tangent lines are not equal, the function is not differentiable there.
+
+Another possible problem occurs when the tangent line is \B{vertical} because a vertical line has an infinite slope.
+
+Fortunately the reverse is true: if a function is differentiable at a point, it is continuous there.
+
+\begin{theorem}[Differentiability Implies Continuity]\label{theorem:diff-cont}
+    If $f(x)$ is a differentiable function at $x = a$, then $f(x)$ is continuous at $x=a$.
+    
+    \begin{proof}
+    We want to show that $f(x)$ is continuous at $x=a$, hence we must show that 
+    \[
+    \Lim{x\to a} f(x) = f(a).
+    \]
+    Consider
+    \begin{align*}
+    \Lim{x\to a} \left(f(x) - f(a)\right) &= \Lim{x\to a} \left((x-a)\frac{f(x) - f(a)}{x-a}\right) &\text{Multiply and divide by $(x-a)$.} \\
+    &= \Lim{h\to 0} h \cdot \frac{f(a+h) - f(a)}{h} &\text{Set $x = a+h$.} \\
+    &= \left(\Lim{h\to 0} h\right) \left(\Lim{h\to 0}\frac{f(a+h) - f(a)}{h}\right) &\text{Limit Law.} \\
+    &= 0\cdot f'(a) = 0.
+    \end{align*}
+    Since $\Lim{x\to a}\left(f(x) - f(a)\right) = 0 $
+    we see that $\Lim{x\to a} f(x) = f(a)$, and so $f(x)$ is continuous.
+    \end{proof}
+\cite{mooc}
+\end{theorem}
+
+\begin{exercise}~\\
+    \begin{enumerate} 
+		\item If the line $y = 7x-4$ is tangent to $f(x)$ at $x=2$, find $f(2)$ and $f'(2)$. \cite{mooc}
+		\item If $f(-2) = 4$ and $f(-2+h) = (h+2)^2$, compute $f'(-2)$. \cite{mooc}
+		\item If $f'(x) = x^3$ and $f(1) = 2$, approximate $f(1.2)$ \cite{mooc}
+    \end{enumerate}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 4–7, consider the plot in Figure \ref{figure:plot-cont-diff}. 
+    }\cite{mooc}\\
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    domain=0:6,
+                    ymax=4,
+                    ymin=-1,
+                    samples=100,
+                    axis lines =middle, xlabel=$x$, ylabel=$y$,
+                    every axis y label/.style={at=(current axis.above origin),anchor=south},
+                    every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                    grid=both,
+                    grid style={dashed, gridColor},
+                    xtick={0,...,6},
+                    ytick={-1,...,4},
+                  ]
+                  \addplot [very thick, penColor, smooth,domain=(3:6)] {3-abs(sin(deg(pi*x/3)))};
+                  \addplot [very thick, penColor, smooth,domain=(0:3)] {3-abs(sin(deg(pi*x/3)))};
+                  \addplot[color=penColor,fill=background,only marks,mark=*] coordinates{(4.5,2)};  %% open hole
+                \end{axis}
+        \end{tikzpicture}
+        \caption{A plot of $f(x)$. \cite{mooc}}
+        \label{figure:plot-cont-diff}
+    \end{figure}
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item On which subinterval(s) of $[0,6]$ is $f(x)$ continuous? 
+        \item On which subinterval(s) of $[0,6]$ is $f(x)$ differentiable?
+        \item Sketch a plot of $f'(x)$. 
+    \end{enumerate}
+\end{exercise}

@@ -1,0 +1,613 @@
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn,openany]{book} % Default font size and left-justified equations\addtolength{}{}
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+\begin{document}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+% \begingroup
+% \thispagestyle{empty}
+% \begin{tikzpicture}[remember picture,overlay]
+% \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+% \draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{
+%     \centering Calculus Made Easy\\[15pt] % Book title
+% {\Large A Profound Subtitle}\\[20pt] % Subtitle
+% {\huge Mark Wang}}}; % Author name
+% \end{tikzpicture}
+% \vfill
+% \endgroup
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+\noindent Copyright \copyright\ 2019 Mark Wang\\ % Copyright notice
+\noindent \textsc{Created with \LaTeX}\\ % Publisher
+\noindent \textsc{MLES-ZJ Calculus 12 Project}\\\\
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+\noindent \textit{First edition, March 2019} % Printing/edition date
+
+
+
+
+
+%----------------------------------------------------------------------------------------(0)
+%	CONTENTS
+%----------------------------------------------------------------------------------------(0)
+
+% \usechapterimagefalse % If you don't want to include a chapter image, use this to toggle images off - it can be enabled later with \usechapterimagetrue
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+\pagestyle{empty} % No headers
+\tableofcontents % Print the table of contents itself
+% \cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+\pagestyle{fancy} % Print headers again
+% \usechapterimagetrue
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------(1)
+%	Prerequisites
+%----------------------------------------------------------------------------------------(1)
+
+\partimage{chapter_head_2.pdf} 
+\part{Prerequisites}
+
+
+
+%------------------------------------[1]
+%	Linear and Piecewise Functions
+%------------------------------------[1]
+
+\chapterimage{line.jpg} 
+\chapter{Linear and Piecewise Functions}
+
+\section{Introduction to Functions}
+
+Many everyday phenomena involve two quantities that are related to 
+each other by some rule of correspondence. The mathematical term for 
+such a rule of correspondence is a \textbf{relation}. In mathematics, 
+relations are often represented by mathematical equations and formulas. 
+For instance, the simple interest $I$ earned on \$1000 for 1 year is 
+related to the annual interest rate r by the formula $I = 1000r$.
+
+The formula $I = 1000r$ represents a special kind of relation that 
+matches each item from one set with \textit{exactly one} item from a 
+different set. Such a relation is called a \textbf{function}.
+
+\begin{definition}[Function]
+A \textbf{function} f from a set $A$ to a set $B$ is a relation that 
+assigns to each element $x$ in the set $A$ exactly one element $y$ 
+in the set $B$. The set $A$ is the \textbf{domain} (or set of inputs) 
+of the function $f$, and the set $B$ contains the \textbf{range} 
+(or set of outputs).
+\end{definition}
+
+Functions are commonlt represented in four ways.
+
+\begin{proposition}[Four ways to represent a function]~\newline
+\begin{enumerate}
+    \item \textit{Verbally} by a sentence that describes how the input variable is related to the output variable
+    \item \textit{Numerically} by a table or a list of ordered pairs that matches input values with output values
+    \item \textit{Graphically} by points on a graph in a coordinate plane in which the input values are represented by the horizontal axis and the output values are represented by the vertical axis
+    \item \textit{Analytically} by an equation in two variables
+    \end{enumerate}
+    \end{proposition}
+~\newline
+To determine whether or not a relation is a function, you must decide whether each input value is matched with exactly one output value. When any input value is matched with two or more output values, the relation is not a function.
+
+\begin{example}[Testing for Functions]~\newline
+    Determine whether the relation represents $y$ as a function of $x$.
+
+    \begin{enumerate}
+\item The input value $x$ is the number of representatives from a state, and the output value $y$ is the number of senators.
+
+\item Function $f$ is defined as the following table
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l l}
+    \toprule
+    \textbf{Input, $x$} & \textbf{Output, $y$}\\
+    \midrule
+    2 & 11 \\
+    2 & 10 \\
+    3 & 8 \\
+    4 & 5 \\
+    5 & 1 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\end{enumerate} 
+
+    \begin{solution}~\newline
+        \begin{enumerate}
+         \item  This verbal description \textit{does} describe $y$ as a function of $x$. Regardless of the value of $x$, the value of $y$ is always 2. Such functions are called \textit{constant functions}.\\
+         \item  This table \textit{does not} describe $y$ as a function of $x$. The input value 2 is matched with two different y-values.
+    \end{enumerate}    
+    \end{solution}
+
+\end{example}
+
+\section{Function Notation}
+
+When an equation is used to represent a function, it is convenient 
+to name the function so that it can be referenced easily. For example, 
+you know that the equation $y=3x+4$ describes $y$ as a function of $x$. 
+Suppose you give this function the name “$f.$” Then you can use the 
+following \textbf{function notation}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l l l}
+    \toprule
+    \textbf{Input} & \textbf{Output} & \textbf{Equation}\\
+    \midrule
+    $x$ & $f(x)$ & $f(x) = 3x+4$\\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    The symbol $f(x)$ is read as the value of $f$ at $x$ or simply 
+    $f$ of $x$. The symbol $f(x)$ corresponds to the y-value for a 
+    given $x$. So, you can write $y=f(x)$. Keep in mind that $f$ is 
+    the name of the function, whereas $f(x)$ is the value of the 
+    function at $x$. For instance, the function given by
+    \begin{align}
+        &  f(x) = 3x+4
+        \end{align}
+
+    has function values denoted by $f(0)$, $f(1)$, $f(2)$, and so on. 
+    To find these values, substitute the specified input values into 
+    the given equation.
+    \begin{align*}
+        f(-1)&=3(-1)+4 = -3+4 = 1    &&x=-1 \\
+        f(0)&=3(0)+4 = 0+4 = 4       &&x=0 \\
+        f(2)&=3(2)+4 = 6+4 = 10      &&x=2
+      \end{align*}
+
+    Although $f$ is often used as a convenient function name and $x$ 
+    is often used as the independent variable, you can use other 
+    letters. For instance,
+    \begin{align}
+        &  f(x) = 3x+4 \text{, }\quad f(t) = 3t+4 \text{, }\quad g(s) = 3s+4
+        \end{align}
+
+    all define the same function. In fact, the role of the independent 
+    variable is that of a “placeholder” that can be replaced by \textit{any 
+    real number or algebraic expression}.
+
+    \begin{example}[Evaluating a Function]~\newline
+        Let $g(x)=-7x+20$. Find each function value
+        \begin{enumerate}
+            \item $g(2)$
+            \item $g(t)$
+            \item $g(x+2)$\\
+        \end{enumerate} 
+        \begin{solution}~\newline
+            \begin{enumerate}
+                \item  Replacing $x$ with 2 in $g(x)=-7x+20$ yields the following.
+                \begin{align}
+                   g(2)&= -7(2) + 20\\
+                   &= -14+20\\
+                   &= 6
+               \end{align}
+               \item  Replacing $x$ with $t$ yields the following.
+               \begin{align}
+                  g(t)&= -7(t) + 20\\
+                  &= -7t+20
+              \end{align}
+              \item  Replacing $x$ with $x+2$ yields the following.
+              \begin{align}
+                 g(x+2)&= -7(x+2) + 20\\
+                 &= -7x-14+20\\
+                 &=7x+20
+             \end{align}
+             \end{enumerate}    
+        \end{solution}
+    \end{example}
+
+    \section{Piecewise Function}
+    A function defined by two or more equations over a specified 
+    domain is called a \textbf{piecewise-defined function}.\\
+
+    \begin{example}[A Piecewise-Defined Function]~\newline
+        Evaluate the function when $x=-1$, $0$, and $1$.
+        \begin{equation}
+            f(x)=\left\{
+                \begin{aligned} 
+                    & x^2+1, & & x < 0\\
+                    & x-1,   & & x \geq 0
+                \end{aligned}\right.
+            \end{equation}
+        \begin{solution} Because $x=-1$ is less than 0, use $f(x)=x^2+1$ to obtain
+            \begin{align}f(-1) = (-1)^2+1 = 2\end{align}
+        For $x=0$, use $f(x) = x-1$ to obtain
+            \begin{align}f(0) = (0)-1 = -1\end{align}
+        For $x=1$, use $f(x) = x-1$ to obtain
+            \begin{align}f(1) = (1)-1 = 0\end{align}
+        \end{solution}
+    \end{example}
+
+
+
+%------------------------------------[5]
+%	Polynomial and Rational Functions
+%------------------------------------[5]
+
+\chapterimage{chapter_head_2.pdf} 
+\chapter{Polynomial and Rational Functions}
+\section{Introduction}
+\lipsum[1] 
+
+
+%------------------------------------[3]
+%	Combination of Functions
+%------------------------------------[3]
+
+\chapterimage{comb.jpg} 
+\chapter{Combination of Functions}
+\section{Introduction}
+\lipsum[1] 
+
+
+%------------------------------------[4]
+%	Inverse Functions
+%------------------------------------[4]
+
+\chapterimage{inv.jpg} 
+\chapter{Inverse Functions}
+\section{Introduction}
+\lipsum[1]
+
+
+
+
+
+%----------------------------------------------------------------------------------------(2)
+%	LIMITS
+%----------------------------------------------------------------------------------------(2)
+
+\part{Limits}
+
+
+
+%------------------------------------[1]
+%	Rational Functions
+%------------------------------------[1]
+
+
+\chapterimage{chapter_head_2.pdf} 
+\chapter{Linear and Piecewise Functions}
+\section{Introduction}
+\lipsum[1] 
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------(2)
+%	Differentiation
+%----------------------------------------------------------------------------------------(2)
+
+\part{Differentiation}
+
+
+
+%------------------------------------[1]
+%	Rational Functions
+%------------------------------------[1]
+
+
+\chapterimage{chapter_head_2.pdf} 
+\chapter{Linear and Piecewise Functions}
+\section{Introduction}
+\lipsum[1] 
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------(2)
+%	Integration
+%----------------------------------------------------------------------------------------(2)
+
+\part{Integration}
+
+
+
+%------------------------------------[1]
+%	Rational Functions
+%------------------------------------[1]
+
+
+\chapterimage{chapter_head_2.pdf} 
+\chapter{Linear and Piecewise Functions}
+\section{Introduction}
+\lipsum[1] 
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLES
+%----------------------------------------------------------------------------------------
+
+\part{EX}
+\chapterimage{chapter_head_2.pdf} 
+
+\chapter{EXAMPLE 1}
+
+\section{good}
+
+\lipsum[1] 
+
+
+\section{Citation}\index{Citation}
+
+This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
+
+
+\section{Lists}\index{Lists}
+
+Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
+
+\subsection{Numbered List}\index{Lists!Numbered List}
+
+\begin{enumerate}
+\item The first item
+\item The second item
+\item The third item
+\end{enumerate}
+
+\subsection{Bullet Points}\index{Lists!Bullet Points}
+
+\begin{itemize}
+\item The first item
+\item The second item
+\item The third item
+\end{itemize}
+
+\subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
+
+\begin{description}
+\item[Name] Description
+\item[Word] Definition
+\item[Comment] Elaboration
+\end{description}
+
+%----------------------------------------------------------------------------------------
+%	EX2
+%----------------------------------------------------------------------------------------
+
+\chapter{EXAMPLE 2}
+
+\section{Theorems}\index{Theorems}
+
+This is an example of theorems.
+
+\subsection{Several equations}\index{Theorems!Several Equations}
+This is a theorem consisting of several equations.
+
+\begin{theorem}[Name of the theorem]
+In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
+\begin{align}
+& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+\end{align}
+\end{theorem}
+
+\subsection{Single Line}\index{Theorems!Single Line}
+This is a theorem consisting of just one line.
+
+\begin{theorem}
+A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
+\end{theorem}
+
+%------------------------------------------------
+
+\section{Definitions}\index{Definitions}
+
+This is an example of a definition. A definition could be mathematical or it could define a concept.
+
+\begin{definition}[Definition name]
+Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
+\begin{align}
+& ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
+& ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
+& ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
+\end{align}
+\end{definition}
+
+%------------------------------------------------
+
+\section{Notations}\index{Notations}
+
+\begin{notation}
+Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
+\begin{enumerate}
+\item Bounded support $G$;
+\item Infinitely differentiable;
+\end{enumerate}
+a vector space is denoted by $\mathcal{D}(G)$. 
+\end{notation}
+
+%------------------------------------------------
+
+\section{Remarks}\index{Remarks}
+
+This is an example of a remark.
+
+\begin{remark}
+The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{remark}
+
+%------------------------------------------------
+
+\section{Corollaries}\index{Corollaries}
+
+This is an example of a corollary.
+
+\begin{corollary}[Corollary name]
+The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+\end{corollary}
+
+%------------------------------------------------
+
+\section{Propositions}\index{Propositions}
+
+This is an example of propositions.
+
+\subsection{Several equations}\index{Propositions!Several Equations}
+
+\begin{proposition}[Proposition name]
+It has the properties:
+\begin{align}
+& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+\end{align}
+\end{proposition}
+
+\subsection{Single Line}\index{Propositions!Single Line}
+
+\begin{proposition} 
+Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
+\end{proposition}
+
+%------------------------------------------------
+
+\section{Examples}\index{Examples}
+
+This is an example of examples.
+
+\subsection{Equation and Text}\index{Examples!Equation and Text}
+
+\begin{example}
+Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
+\begin{equation}
+f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
+& 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
+\end{equation}
+The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
+\end{example}
+
+\subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
+
+\begin{example}[Example name]
+\lipsum[2]
+\end{example}
+
+%------------------------------------------------
+
+\section{Exercises}\index{Exercises}
+
+This is an example of an exercise.
+
+\begin{exercise}
+This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+\end{exercise}
+
+%------------------------------------------------
+
+\section{Problems}\index{Problems}
+
+\begin{problem}
+What is the average airspeed velocity of an unladen swallow?
+\end{problem}
+
+%------------------------------------------------
+
+\section{Vocabulary}\index{Vocabulary}
+
+Define a word to improve a students' vocabulary.
+
+\begin{vocabulary}[Word]
+Definition of word.
+\end{vocabulary}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} 
+
+\chapter{EXAMPLE 3}
+
+\section{Table}\index{Table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l l}
+\toprule
+\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+\midrule
+Treatment 1 & 0.0003262 & 0.562 \\
+Treatment 2 & 0.0015681 & 0.910 \\
+Treatment 3 & 0.0009271 & 0.296 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+
+%------------------------------------------------
+
+\section{Figure}\index{Figure}
+
+\begin{figure}[h]
+\centering\includegraphics[scale=0.5]{placeholder}
+\caption{Figure caption}
+\end{figure}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\part*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{Black}{Bibliography}}
+\section*{Books}
+\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

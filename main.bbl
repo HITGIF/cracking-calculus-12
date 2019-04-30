@@ -1,0 +1,560 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{mooc}{book}{}
+      \name{author}{2}{}{%
+        {{hash=553832b683fccf62e67ebe0192551988}{%
+           family={Fowler},
+           familyi={F\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3bb03e2afcf2a23590cb52fbd9cae47d}{%
+           family={Snapp},
+           familyi={S\bibinitperiod},
+           given={Bart},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {543 Howard Street, 5th Floor, San Francisco, California, 94105, USA}%
+      }
+      \strng{namehash}{13a44bff872b1ada80cee40c341fbd43}
+      \strng{fullhash}{13a44bff872b1ada80cee40c341fbd43}
+      \strng{bibnamehash}{13a44bff872b1ada80cee40c341fbd43}
+      \strng{authorbibnamehash}{13a44bff872b1ada80cee40c341fbd43}
+      \strng{authornamehash}{13a44bff872b1ada80cee40c341fbd43}
+      \strng{authorfullhash}{13a44bff872b1ada80cee40c341fbd43}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{MOOCulus Calculus}
+      \field{year}{2014}
+    \endentry
+    \entry{ap}{book}{}
+      \name{author}{1}{}{%
+        {{hash=51977c265ea9e06aaecd30968d183c5b}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={David\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton Review}%
+      }
+      \strng{namehash}{51977c265ea9e06aaecd30968d183c5b}
+      \strng{fullhash}{51977c265ea9e06aaecd30968d183c5b}
+      \strng{bibnamehash}{51977c265ea9e06aaecd30968d183c5b}
+      \strng{authorbibnamehash}{51977c265ea9e06aaecd30968d183c5b}
+      \strng{authornamehash}{51977c265ea9e06aaecd30968d183c5b}
+      \strng{authorfullhash}{51977c265ea9e06aaecd30968d183c5b}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cracking the AP Calculus BC Exam: 2019 Edition}
+      \field{year}{2018}
+    \endentry
+    \entry{ci}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8199c3ea1d4ae7a5ccbdaac7e7d521e5}{%
+           family={Larson},
+           familyi={L\bibinitperiod},
+           given={Ron},
+           giveni={R\bibinitperiod}}}%
+        {{hash=93c7a5686cf6be63c616ad1d597aabed}{%
+           family={Edwards},
+           familyi={E\bibinitperiod},
+           given={Bruce\bibnamedelima H.},
+           giveni={B\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {20 Channel Center Street Boston, MA, 02210, USA}%
+      }
+      \list{publisher}{1}{%
+        {Cengage Learning}%
+      }
+      \strng{namehash}{63732c21f30add7c1d514cabea6737c5}
+      \strng{fullhash}{63732c21f30add7c1d514cabea6737c5}
+      \strng{bibnamehash}{63732c21f30add7c1d514cabea6737c5}
+      \strng{authorbibnamehash}{63732c21f30add7c1d514cabea6737c5}
+      \strng{authornamehash}{63732c21f30add7c1d514cabea6737c5}
+      \strng{authorfullhash}{63732c21f30add7c1d514cabea6737c5}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Calculus I with Precalculus: Third Edition}
+      \field{year}{2012}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{1}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{curve}{image}{}
+      \name{author}{1}{}{%
+        {{hash=1e1c40d7ed4224718223f550bc319169}{%
+           family={Amin},
+           familyi={A\bibinitperiod},
+           given={Vishal},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{1e1c40d7ed4224718223f550bc319169}
+      \strng{fullhash}{1e1c40d7ed4224718223f550bc319169}
+      \strng{bibnamehash}{1e1c40d7ed4224718223f550bc319169}
+      \strng{authorbibnamehash}{1e1c40d7ed4224718223f550bc319169}
+      \strng{authornamehash}{1e1c40d7ed4224718223f550bc319169}
+      \strng{authorfullhash}{1e1c40d7ed4224718223f550bc319169}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lake Surrounded With Mountains}
+      \field{year}{2002}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/lake-surrounded-with-mountains-910307/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/lake-surrounded-with-mountains-910307/
+      \endverb
+    \endentry
+    \entry{max}{image}{}
+      \name{author}{1}{}{%
+        {{hash=79f23888e8f0cef7781b8da6d5585d69}{%
+           family={Bjørkli},
+           familyi={B\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{79f23888e8f0cef7781b8da6d5585d69}
+      \strng{fullhash}{79f23888e8f0cef7781b8da6d5585d69}
+      \strng{bibnamehash}{79f23888e8f0cef7781b8da6d5585d69}
+      \strng{authorbibnamehash}{79f23888e8f0cef7781b8da6d5585d69}
+      \strng{authornamehash}{79f23888e8f0cef7781b8da6d5585d69}
+      \strng{authorfullhash}{79f23888e8f0cef7781b8da6d5585d69}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Icy Mountain Scenery}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/icy-mountain-scenery-2113563/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/icy-mountain-scenery-2113563/
+      \endverb
+    \endentry
+    \entry{comb}{image}{}
+      \name{author}{1}{}{%
+        {{hash=49b2577bae91ac443d07a22854ffd1d2}{%
+           family={Chan},
+           familyi={C\bibinitperiod},
+           given={Jimmy},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{49b2577bae91ac443d07a22854ffd1d2}
+      \strng{fullhash}{49b2577bae91ac443d07a22854ffd1d2}
+      \strng{bibnamehash}{49b2577bae91ac443d07a22854ffd1d2}
+      \strng{authorbibnamehash}{49b2577bae91ac443d07a22854ffd1d2}
+      \strng{authornamehash}{49b2577bae91ac443d07a22854ffd1d2}
+      \strng{authorfullhash}{49b2577bae91ac443d07a22854ffd1d2}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Brown Wooden Stairs}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/brown-wooden-stairs-1309897/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/brown-wooden-stairs-1309897/
+      \endverb
+    \endentry
+    \entry{line}{image}{}
+      \name{author}{1}{}{%
+        {{hash=1c9c027e30f10247bd5487c982613209}{%
+           family={Cujic},
+           familyi={C\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c9c027e30f10247bd5487c982613209}
+      \strng{fullhash}{1c9c027e30f10247bd5487c982613209}
+      \strng{bibnamehash}{1c9c027e30f10247bd5487c982613209}
+      \strng{authorbibnamehash}{1c9c027e30f10247bd5487c982613209}
+      \strng{authornamehash}{1c9c027e30f10247bd5487c982613209}
+      \strng{authorfullhash}{1c9c027e30f10247bd5487c982613209}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cloud in Sky and Building}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/sky-architecture-building-modern-109479/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/sky-architecture-building-modern-109479/
+      \endverb
+    \endentry
+    \entry{implicit}{image}{}
+      \name{author}{1}{}{%
+        {{hash=fe6202128fafb6fc95aa7ccfb646589b}{%
+           family={K},
+           familyi={K\bibinitperiod},
+           given={Burak},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe6202128fafb6fc95aa7ccfb646589b}
+      \strng{fullhash}{fe6202128fafb6fc95aa7ccfb646589b}
+      \strng{bibnamehash}{fe6202128fafb6fc95aa7ccfb646589b}
+      \strng{authorbibnamehash}{fe6202128fafb6fc95aa7ccfb646589b}
+      \strng{authornamehash}{fe6202128fafb6fc95aa7ccfb646589b}
+      \strng{authorfullhash}{fe6202128fafb6fc95aa7ccfb646589b}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Grayscale Photo of Road}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/grayscale-photo-of-road-1250664/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/grayscale-photo-of-road-1250664/
+      \endverb
+    \endentry
+    \entry{analytic}{image}{}
+      \name{author}{1}{}{%
+        {{hash=3af0e7c2f52f9017fd4ef069625f6f20}{%
+           family={Pixabay},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{fullhash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{bibnamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authorbibnamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authornamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authorfullhash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Black Calculator Near Ballpoint Pen on White Printed Paper}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/black-calculator-near-ballpoint-pen-on-white-printed-paper-53621/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/black-calculator-near-ballpoint-pen-on-white-printed-paper-53621/
+      \endverb
+    \endentry
+    \entry{conti}{image}{}
+      \name{author}{1}{}{%
+        {{hash=3af0e7c2f52f9017fd4ef069625f6f20}{%
+           family={Pixabay},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{fullhash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{bibnamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authorbibnamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authornamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authorfullhash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Macro Photography of Water Waves}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/abstract-background-beach-color-355288/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/abstract-background-beach-color-355288/
+      \endverb
+    \endentry
+    \entry{polynomial}{image}{}
+      \name{author}{1}{}{%
+        {{hash=3af0e7c2f52f9017fd4ef069625f6f20}{%
+           family={Pixabay},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{fullhash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{bibnamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authorbibnamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authornamehash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \strng{authorfullhash}{3af0e7c2f52f9017fd4ef069625f6f20}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{White Stairs Wallpaper}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/contemporary-gradient-handrails-perspective-434645/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/contemporary-gradient-handrails-perspective-434645/
+      \endverb
+    \endentry
+    \entry{inv}{image}{}
+      \name{author}{1}{}{%
+        {{hash=a815f5859549bf3329c489519b874c2b}{%
+           family={Powell},
+           familyi={P\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a815f5859549bf3329c489519b874c2b}
+      \strng{fullhash}{a815f5859549bf3329c489519b874c2b}
+      \strng{bibnamehash}{a815f5859549bf3329c489519b874c2b}
+      \strng{authorbibnamehash}{a815f5859549bf3329c489519b874c2b}
+      \strng{authornamehash}{a815f5859549bf3329c489519b874c2b}
+      \strng{authorfullhash}{a815f5859549bf3329c489519b874c2b}
+      \field{sortinit}{P}
+      \field{sortinithash}{8d51b3d5b78d75b54308d706b9bbe285}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Low Angle Shot of an Airplane Between Two Buildings}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/low-angle-shot-of-an-airplane-1805192/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/low-angle-shot-of-an-airplane-1805192/
+      \endverb
+    \endentry
+    \entry{difdef}{image}{}
+      \name{author}{1}{}{%
+        {{hash=dee6b0113bb6c8cd26d625a8b1bac234}{%
+           family={rawpixel.com},
+           familyi={r\bibinitperiod}}}%
+      }
+      \strng{namehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{fullhash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{bibnamehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{authorbibnamehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{authornamehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{authorfullhash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \field{sortinit}{r}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Black and White Asphalt Road}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/black-and-white-asphalt-road-1851472/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/black-and-white-asphalt-road-1851472/
+      \endverb
+    \endentry
+    \entry{inf}{image}{}
+      \name{author}{1}{}{%
+        {{hash=dee6b0113bb6c8cd26d625a8b1bac234}{%
+           family={rawpixel.com},
+           familyi={r\bibinitperiod}}}%
+      }
+      \strng{namehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{fullhash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{bibnamehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{authorbibnamehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{authornamehash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \strng{authorfullhash}{dee6b0113bb6c8cd26d625a8b1bac234}
+      \field{sortinit}{r}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Green Arrow on Stairs}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/green-arrow-on-stairs-1803914/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/green-arrow-on-stairs-1803914/
+      \endverb
+    \endentry
+    \entry{mvtd}{image}{}
+      \name{author}{1}{}{%
+        {{hash=dd3dc36efb29e80d4c28220797ba63b9}{%
+           family={Rie},
+           familyi={R\bibinitperiod},
+           given={Pok},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd3dc36efb29e80d4c28220797ba63b9}
+      \strng{fullhash}{dd3dc36efb29e80d4c28220797ba63b9}
+      \strng{bibnamehash}{dd3dc36efb29e80d4c28220797ba63b9}
+      \strng{authorbibnamehash}{dd3dc36efb29e80d4c28220797ba63b9}
+      \strng{authornamehash}{dd3dc36efb29e80d4c28220797ba63b9}
+      \strng{authorfullhash}{dd3dc36efb29e80d4c28220797ba63b9}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Green Tree Lot}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/green-tree-lot-1117267/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/green-tree-lot-1117267/
+      \endverb
+    \endentry
+    \entry{wind}{image}{}
+      \name{author}{1}{}{%
+        {{hash=b2cf7ce0e63953dd6504865044a76f4f}{%
+           family={Snapwire},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{fullhash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{bibnamehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{authorbibnamehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{authornamehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{authorfullhash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mirror of Building Showing Opened Window}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/building-clouds-facade-glass-panels-412842/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/building-clouds-facade-glass-panels-412842/
+      \endverb
+    \endentry
+    \entry{lim}{image}{}
+      \name{author}{1}{}{%
+        {{hash=b2cf7ce0e63953dd6504865044a76f4f}{%
+           family={Snapwire},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{fullhash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{bibnamehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{authorbibnamehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{authornamehash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \strng{authorfullhash}{b2cf7ce0e63953dd6504865044a76f4f}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Yellow Straight Line Road Between Tall Trees}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/curve-decision-forest-fork-6754/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/curve-decision-forest-fork-6754/
+      \endverb
+    \endentry
+    \entry{top}{image}{}
+      \name{author}{1}{}{%
+        {{hash=cb3660883bb1804420f0051cf164e145}{%
+           family={Staševskij},
+           familyi={S\bibinitperiod},
+           given={Miroslav},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb3660883bb1804420f0051cf164e145}
+      \strng{fullhash}{cb3660883bb1804420f0051cf164e145}
+      \strng{bibnamehash}{cb3660883bb1804420f0051cf164e145}
+      \strng{authorbibnamehash}{cb3660883bb1804420f0051cf164e145}
+      \strng{authornamehash}{cb3660883bb1804420f0051cf164e145}
+      \strng{authorfullhash}{cb3660883bb1804420f0051cf164e145}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Man Standing on Mountain}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/man-standing-on-mountain-2197902/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/man-standing-on-mountain-2197902/
+      \endverb
+    \endentry
+    \entry{tools}{image}{}
+      \name{author}{1}{}{%
+        {{hash=a9b79a540edfaa14ebf76b03aa84fe68}{%
+           family={Stiver},
+           familyi={S\bibinitperiod},
+           given={Kim},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{a9b79a540edfaa14ebf76b03aa84fe68}
+      \strng{fullhash}{a9b79a540edfaa14ebf76b03aa84fe68}
+      \strng{bibnamehash}{a9b79a540edfaa14ebf76b03aa84fe68}
+      \strng{authorbibnamehash}{a9b79a540edfaa14ebf76b03aa84fe68}
+      \strng{authornamehash}{a9b79a540edfaa14ebf76b03aa84fe68}
+      \strng{authorfullhash}{a9b79a540edfaa14ebf76b03aa84fe68}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handheld Tools Hang on Workbench}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/handheld-tools-hang-on-workbench-909256/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/handheld-tools-hang-on-workbench-909256/
+      \endverb
+    \endentry
+    \entry{motion}{image}{}
+      \name{author}{1}{}{%
+        {{hash=1cb093675936478704e1aecbbc93289a}{%
+           family={Verrecchia},
+           familyi={V\bibinitperiod},
+           given={Fabrizio},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{1cb093675936478704e1aecbbc93289a}
+      \strng{fullhash}{1cb093675936478704e1aecbbc93289a}
+      \strng{bibnamehash}{1cb093675936478704e1aecbbc93289a}
+      \strng{authorbibnamehash}{1cb093675936478704e1aecbbc93289a}
+      \strng{authornamehash}{1cb093675936478704e1aecbbc93289a}
+      \strng{authorfullhash}{1cb093675936478704e1aecbbc93289a}
+      \field{sortinit}{V}
+      \field{sortinithash}{75dd7385c90b2252c3ae853a80ca853b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Standing Woman Facing a Speeding Train}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.pexels.com/photo/adult-backpack-blur-business-298018/
+      \endverb
+      \verb{url}
+      \verb https://www.pexels.com/photo/adult-backpack-blur-business-298018/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

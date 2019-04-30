@@ -1,0 +1,339 @@
+\chapterimage{img/lim_intro.jpg} 
+\chapter{Introduction to Limits}
+
+\section{What is a Limit?}
+
+In orther to understand calculus, you need to know what a "limit" is. A limit is the value a function approaches as the variable within the function (usually "$x$") gets nearer and nearer to a particular value. In other words, when $x$ is very close to a certain number, what is $f(x)$ very close to?
+
+Let's look at an example of a limit: What is the limit of the function $f(x)=x^2$ as $x$ approaches $2$? In limit notation, the expression of "the limit of $f(x)$ as $x$ approaches $2$" is written like this: $\lim\limits{x\to 2}f(x)$. In order to evaluate the limit, let's check out some values of $\lim\limits{x\to 2}f(x)$ as $x$ increases and gets close to $2$ (without ever exactly getting there).
+
+\begin{align*}
+    & \text{When }x=1.9, f(x) = 3.61.\\
+    & \text{When }x=1.99, f(x) = 3.9601.\\
+    & \text{When }x=1.999, f(x) = 3.996001.\\
+    & \text{When }x=1.9999, f(x) = 3.99960001.\\
+\end{align*}
+
+As $x$ increases and approaches $2$, $f(x)$ gets closer and closer to $4$. This is called the \textbf{left-hand limit} and is written: $\lim\limits{x\to 2^-}f(x)$. Notice the littleminus sign!
+
+What about when $x$ is bigger than $2$?
+
+\begin{align*}
+    & \text{When }x=2.1, f(x) = 4.41.\\
+    & \text{When }x=2.01, f(x) = 4.0401.\\
+    & \text{When }x=2.001, f(x) = 4.004001.\\
+    & \text{When }x=2.0001, f(x) = 4.00040001.\\
+\end{align*}
+
+As $x$ increases and approaches $2$, $f(x)$ still approaches $4$. This is called the \textbf{right-hand limit} and is written: $\lim\limits{x\to 2^+}f(x)$. Notice the little plus sign!
+
+We got the same answer when evaluating both lift- and right-hand limits, because when $x$ is $2$, $f(x)$ is $4$. You should always check both sides of the independent variable because, as you'll see shortly, sometimes you don't get the same answser. Therefore, we write that $\lim\limits{x\to 2}x^2 = 4$.\\
+
+Let's consider the function \cite{mooc}:
+$$f(x)=\protect\frac{x^2 - 3x + 2}{x-2}$$
+
+\begin{multicols}{2}
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+				domain=-2:4,
+				axis lines =middle, xlabel=$x$, ylabel=$y$,
+				every axis y label/.style={at=(current axis.above origin),anchor=south},
+				every axis x label/.style={at=(current axis.right of origin),anchor=west},
+				grid=both,
+				grid style={dashed, gridColor},
+				xtick={-2,...,4},
+				ytick={-3,...,3},
+			  ]
+		  		\addplot [very thick, penColor, smooth] {x-1};
+			  	\addplot[color=penColor,fill=background,only marks,mark=*] coordinates{(2,1)};  %% open hole
+		\end{axis}
+	\end{tikzpicture}
+	\caption{A plot of $f(x)=\protect\frac{x^2 - 3x + 2}{x-2}$.}
+	\label{plot:(x^2 - 3x + 2)/(x-2)}
+\end{figure}
+
+\vspace*{\fill}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l l}
+		\toprule
+		\textbf{$x$} & \textbf{$f(x)$} \\
+		\midrule
+ 		1.7 	&  0.7 		\\
+ 		1.9 	&  0.9 		\\
+ 		1.99 	&  0.99 	\\
+ 		1.999 	&  0.999 	\\
+		2 		&  \text{undefined} \\
+		2.001	&  1.001	\\
+		2.01	&  1.01		\\
+		2.1 	&  1.1 		\\
+		2.3 	&  1.3 		\\
+		\bottomrule
+	\end{tabular}
+\caption{Values of $f(x)=\protect\frac{x^2 - 3x + 2}{x-2}$.}
+\end{table}
+\vspace*{\fill}
+\end{multicols}
+
+While $f(x)$ is undefined at $x = 2$, we can still plot $f(x)$ at other values, see Figure 1.1. Examining Table 1.1, we see that as $x$ approaches $2$, $f(x)$ approaches $1$. We write this:
+$$\text{As  } x \to 2\text{,  }f(x) \to 1
+\qquad\text{or}\qquad
+\lim_{x\to 2} f(x) = 1$$
+
+Intuitively, $\displaystyle\lim\limits_{x\to a} f(x) = L$ when the value of $f(x)$ can be made arbitrarily close to $L$ by making $x$ sufficiently close, but not equal to, $a$. This leads us to the formal definition of a limit.
+
+
+\begin{definition}[Limit]
+	The \textbf{limit} of $f(x)$ as $x$ approaches $a$ is $L$,
+	$$\lim_{x\to a} f(x) = L,$$
+	if for every $\epsilon > 0$ there is a $\delta > 0$ such that whenever
+	$$0 < |x-a| < \delta,
+	\qquad\text{we have}\qquad
+	|f(x) - L| < \epsilon$$
+	If not such value of $L$ can be found, the the $\displaystyle\lim\limits_{x\to a} f(x)$
+    \textbf{does not exist}.  
+    \\\cite{mooc}
+\end{definition}
+
+The geometric interpretation of this definition can be seen in 
+Figure 1.2.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+            domain=0:2, 
+            axis lines =left, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+            xtick={0.7,1,1.3}, ytick={3,4,5},
+            xticklabels={$a-\delta$,$a$,$a+\delta$}, yticklabels={$L-\epsilon$,$L$,$L+\epsilon$},
+            axis on top,
+          ]          
+			\addplot [color=textColor, fill=fill2, smooth, domain=(0:1.570)] {5} \closedcycle;
+			\addplot [color=textColor, dashed, fill=fill1, smooth, domain=(0:1.3)] {4.537} \closedcycle;
+			\addplot [color=textColor, dashed, fill=fill2, domain=(0:.7)] {3.283} \closedcycle;       
+			\addplot [textColor, very thick, smooth, domain=(0:1)] {4};
+			\addplot [color=textColor, fill=background, smooth, domain=(0:0.607)] {3} \closedcycle;
+			\addplot [draw=none, fill=background, smooth] {x*(x-2)^2+3*x} \closedcycle;
+			\addplot [fill=fill1, draw=none, domain=.7:1.3] {x*(x-2)^2+3*x} \closedcycle;
+			\addplot [textColor, very thick] plot coordinates {(1,0) (1,4)};
+			\addplot [textColor] plot coordinates {(.7,0) (.7,3.283)};
+			\addplot [textColor] plot coordinates {(1.3,0) (1.3,4.537)};
+	  		\addplot [very thick,penColor, smooth] {x*(x-2)^2+3*x};
+        \end{axis}
+	\end{tikzpicture}
+	\caption{A geometric interpretation of the
+	  $(\epsilon,\delta)$-criterion for limits.  If $0<|x-a|<\delta$, then we have that $a
+	  -\delta < x < a+\delta$. In our diagram, we see that for all such
+	  $x$ we are sure to have $L - \epsilon< f(x) < L+\epsilon$, and hence
+	  $|f(x) - L|<\epsilon$. \cite{mooc}}
+	\label{figure:epsilon-delta}
+\end{figure}
+
+And as we've seen, sometimes the limit of a function exists from one side or the other (or both) even though the limit does not exist. Since it is useful to be able to talk about this situation, we introduce the concept of a
+\textit{one-sided limit}\index{one-sided limit}:
+
+\begin{definition}[One-Sided Limit]
+	We say that the \textbf{limit} of $f(x)$ as $x$ 
+	goes to $a$ from the \textbf{left} is $L$,
+	$$\lim_{x\to a^-}f(x)=L$$
+	if for every $\epsilon>0$ there is a $\delta > 0$ so that 
+	whenever $x< a$ and 
+	$$a-\delta < x \qquad\text{we have}\qquad |f(x)-L|<\epsilon.$$
+
+	We say that the \textbf{limit} of $f(x)$ as $x$ goes to $a$ 
+	from the \textbf{right} is $L$,
+	$$\lim_{x\to a^+}f(x)=L$$
+	if for every $\epsilon>0$ there is a $\delta > 0$ so that 
+	whenever $x > a$ and 
+    $$x<a+\delta \qquad\text{we have}\qquad |f(x)-L|<\epsilon.$$ 
+    \cite{mooc}
+\end{definition}
+
+\section{Finding Limits with Graphs and Tables}
+
+We can sometimes determine the limit of a function simply through 
+its graph or a table of values. Let's do a few examples.
+~\\
+\begin{example}
+	Find $\displaystyle\lim\limits_{x\to 3} \frac{x^2 - 2x - 3}{x-3}$
+    ~\newline
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    domain=0:5,
+                    axis lines =middle, xlabel=$x$, ylabel=$y$,
+                    every axis y label/.style={at=(current axis.above origin),anchor=south},
+                    every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                    grid=both,
+                    grid style={dashed, gridColor},
+                    xtick={-1,...,5},
+                    ytick={0,...,5},
+                  ]
+                      \addplot [very thick, penColor, smooth] {x+1};
+                      \addplot[holdot] coordinates{(3,4)};  %% open hole
+            \end{axis}
+        \end{tikzpicture}
+        \label{plot:(x^2 - 3x + 2)/(x-2)}
+    \end{figure}
+	\begin{solution}~\newline
+        Even though $f(x)$ is undefined at $x=3$, the limit still exists. We can see from the graph that $f(x)$ goes closer and closer to $4$ as $x\to 3$, so the answer is 
+        $$\displaystyle\lim\limits_{x\to 3} \frac{x^2 - 2x - 3}{x-3} = 4$$
+	\end{solution}
+\end{example}
+
+\begin{example}
+	Find $\displaystyle\lim\limits_{x\to 0} f(x)$
+    ~\newline
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l l}
+            \toprule
+            \textbf{$x$} & \textbf{$f(x)$} \\
+            \midrule
+            1       &   54.9989164415   \\
+            0.1 	&  56.2373785384 	\\
+            0.01 	&  56.2498737743 	\\
+            0.001 	&  56.2499987377 	\\
+            0 		&  \text{undefined} \\
+            -0.001	&  56.2499987377	\\
+            -0.01	&  56.2498737743 	\\
+            -0.1	&  56.2373785384 	\\
+            -1      &   54.9989164415   \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+	\begin{solution}~\newline
+        Again, a limit can exist even if the original function is undefined at a certain value, as long as the one-handed limits from both sides equals. We can see from the table that $f(x)$ goes closer to $56.25$ as from both left and right, that is,
+        $$\displaystyle\lim\limits_{x\to 0^-}f(x) = \displaystyle\lim\limits_{x\to 0^+}f(x) = 56.25$$ 
+        therefore, 
+        $$\displaystyle\lim\limits_{x\to 0} f(x) = 56.25$$
+	\end{solution}
+\end{example}
+
+\section{Limits That Failed to Exist}
+In the next two examples you will examine some limits that fail to exist.
+
+\begin{example}[Behavior That Differs from the Right and from the Left ]\cite{ci}
+    ~\\
+    Show that the limit 
+    $$\displaystyle\lim\limits_{x\to 0} \dfrac{|x|}{x}$$
+    does not exist.\\
+    \begin{solution}~\newline
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                [
+                declare function={
+                    func(\x)= (\x < 0) * (-1)   +
+                    (\x >= 0) * (1)
+                ;
+                }]
+                \begin{axis}[
+                        ejes=-2:2 -2:2,xlabel=$x$, ylabel=$y$,
+                        every axis y label/.style={at=(current axis.above origin),anchor=south},
+                        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                    ]
+                    \addplot [domain=-2:0, very thick, penColor] {func(x)};
+                    \addplot [domain=0:2, very thick, penColor] {func(x)};
+                    \addplot [holdot] coordinates{(0,-1)(0,1)};
+                \end{axis}
+            \end{tikzpicture}
+            \caption{A plot of $\dfrac{|x|}{x}$.}
+            \label{plot:abs(x)/x}
+        \end{figure}
+        Consider the graph of the function $\dfrac{|x|}{x}$. From 
+        Figure~\ref{plot:abs(x)/x} and 
+        the definition of absolute value
+        \[ |x| = 
+            \begin{cases} 
+            x   & x\geq 0 \\
+            -x  & x < 0 
+            \end{cases}
+        \]
+        you can see that
+        \[ \dfrac{|x|}{x} = 
+            \begin{cases} 
+            1   & x > 0 \\
+            -1  & x < 0 
+            \end{cases}
+        \]
+        This means that no matter how close $x$ gets to $0$, there will be both positive and negative $x$-values that yield $f(x)=1$ or $f(x)=-1$. Specifically, if $\delta$ is a positive number, then for $x$-values satisfying the inequality $0 < |x| < \delta$, you can classify the values of $\dfrac{|x|}{x}$ as follows.
+        \begin{align*}
+            &\text{within }(-\delta, 0), &&\dfrac{|x|}{x} = -1&& &&\\
+            &\text{within }(0, \delta),  &&\dfrac{|x|}{x} = 1&& &&
+        \end{align*}
+
+        Because $\dfrac{|x|}{x}$ approaches a different number from the right side of 0 than it approaches from the left side, the limit $\displaystyle\lim\limits_{x\to 0}\dfrac{|x|}{x}$ does not exist.
+    \end{solution}
+\end{example}
+
+\begin{example}[Unbounded Behaviour ]\cite{ci}
+    ~\\
+    Discuss the existance of 
+    $$\displaystyle\lim\limits_{x\to -1} \protect\frac{1}{x+1}$$
+
+    \begin{solution}
+    \begin{multicols}{2}
+        \begin{figure}[H]
+            \begin{tikzpicture}
+                \begin{axis}[
+                        ejes=-3:3 0:6,xlabel=$x$, ylabel=$y$,
+                        every axis y label/.style={at=(current axis.above origin),anchor=south},
+                        every axis x label/.style={at=(current axis.right of origin),anchor=west},
+                        grid=both,
+                        grid style={dashed, gridColor},
+                        height=4cm
+                    ]
+                        \addplot [very thick, penColor, smooth] {1/(x^2)};
+                            \vasymptote {0}
+                \end{axis}
+            \end{tikzpicture}
+            \caption{A plot of $\protect\frac{1}{x^2}$.}
+            \label{plot:(1)/(x^2)}
+        \end{figure}
+            \begin{table}[H]
+                \centering
+                \begin{tabular}{l l}
+                    \toprule
+                    \textbf{$x$} & \textbf{$\protect\frac{1}{x^2}$} \\
+                    \midrule
+                    1       &  1                \\
+                    0.1     &  100              \\
+                    0.01	&  10,000 		    \\
+                    0.001	&  1,000,000 	    \\
+                    0 		&  \text{undefined} \\
+                    -0.001	&  1,000,000	    \\
+                    -0.01	&  10,000 		    \\
+                    -0.1	&  100 		        \\
+                    -1      &  1                \\
+                    \bottomrule
+                \end{tabular}
+                \caption{Values of $f(x)=\protect\frac{1}{x^2}$.}
+            \end{table}
+    \end{multicols}
+        
+    Let $f(x) = \protect\frac{1}{x^2}$. In Figure \ref{plot:(1)/(x^2)}, you can see that as $x$ approaches 0 from either the right or the left, $f(x)$ increases without bound. This means that by choosing $x$ close enough to $0$, you can force $f(x)$ to be as large as you want. For instance, $f(x)$ will be larger than $100$ if you choose x that is within $1\over 10$ of $0$. That is,
+    \begin{align}
+        0<|x|<\dfrac{1}{10} \qquad \to \qquad f(x) = \dfrac{1}{x^2} > 100
+    \end{align}
+    Similarly, you can force $f(x)$ to be larger than $1,000,000$, as follows.
+    \begin{align}
+        0<|x|<\dfrac{1}{1000} \qquad \to \qquad f(x) = \dfrac{1}{x^2} > 1,000,000
+    \end{align}
+    Because $f(x)$ is not approaching a real number $L$ as $x$ approaches $0$, you can conclude that the limit does not exist.
+    \end{solution}
+\end{example}
+\begin{exercise}
+    ~\\
+    \begin{enumerate}
+		\item Use the definition of limits to explain why $\displaystyle\lim\limits_{x\to 0 } x\sin\left({1\over x}\right) = 0$.  Hint: Use the fact that $|\sin(a) |\le 1$ for any real number $a$. \cite{mooc}
+		\item Use the definition of limits to explain why $\displaystyle\lim\limits_{x\to -2} \pi = \pi$. \cite{mooc}
+		\item Use the definition of limits to explain why $\lim_{x\to 9} \frac{x-9}{\sqrt{x}-3}= 6$. \cite{mooc}
+        \item Sketch a plot of $f(x) = \dfrac{x}{|x|}$ and explain why $\displaystyle\lim\limits_{x\to 0} \frac{x}{|x|}$ does not exist. \cite{mooc}
+    \end{enumerate}
+
+\end{exercise}

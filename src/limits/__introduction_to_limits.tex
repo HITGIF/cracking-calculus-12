@@ -1,0 +1,219 @@
+\chapterimage{img/lim_intro.jpg} 
+\chapter{Introduction to Limits}
+
+\section{The Basic Idea of Limits}
+
+Consider the function:
+$$f(x)=\protect\frac{x^2 - 3x + 2}{x-2}$$
+
+\begin{multicols}{2}
+\begin{figure}[H]
+	\begin{tikzpicture}
+		\begin{axis}[
+				domain=-2:4,
+				axis lines =middle, xlabel=$x$, ylabel=$y$,
+				every axis y label/.style={at=(current axis.above origin),anchor=south},
+				every axis x label/.style={at=(current axis.right of origin),anchor=west},
+				grid=both,
+				grid style={dashed, gridColor},
+				xtick={-2,...,4},
+				ytick={-3,...,3},
+			  ]
+		  		\addplot [very thick, penColor, smooth] {x-1};
+			  	\addplot[color=penColor,fill=background,only marks,mark=*] coordinates{(2,1)};  %% open hole
+		\end{axis}
+	\end{tikzpicture}
+	\caption{A plot of $f(x)=\protect\frac{x^2 - 3x + 2}{x-2}$.}
+	\label{plot:(x^2 - 3x + 2)/(x-2)}
+\end{figure}
+
+\vspace*{\fill}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l l}
+		\toprule
+		\textbf{$x$} & \textbf{$f(x)$} \\
+		\midrule
+ 		1.7 	&  0.7 		\\
+ 		1.9 	&  0.9 		\\
+ 		1.99 	&  0.99 	\\
+ 		1.999 	&  0.999 	\\
+		2 		&  \text{undefined} \\
+		2.001	&  1.001	\\
+		2.01	&  1.01		\\
+		2.1 	&  1.1 		\\
+		2.3 	&  1.3 		\\
+		\bottomrule
+	\end{tabular}
+\caption{Values of $f(x)=\protect\frac{x^2 - 3x + 2}{x-2}$.}
+\end{table}
+\vspace*{\fill}
+\end{multicols}
+
+While $f(x)$ is undefined at $x = 2$, we can still plot $f(x)$ at other 
+values, see Figure 1.1. Examining Table 1.1, we see that as $x$ 
+approaches $2$, $f(x)$ approaches $1$. We write this:
+$$\text{As  } x \to 2\text{,  }f(x) \to 1
+\qquad\text{or}\qquad
+\lim_{x\to 2} f(x) = 1$$
+
+Intuitively, $\lim\limits_{x\to a} f(x) = L$ when the value of $f(x)$ can be 
+made arbitrarily close to $L$ by making $x$ sufficiently close, but not 
+equal to, $a$. This leads us to the formal definition of a limit.
+
+
+\begin{definition}[Limit]
+	The \textbf{limit} of $f(x)$ as $x$ approaches $a$ is $L$,
+	$$\lim_{x\to a} f(x) = L,$$
+	if for every $\epsilon > 0$ there is a $\delta > 0$ such that 
+	whenever
+	$$0 < |x-a| < \delta,
+	\qquad\text{we have}\qquad
+	|f(x) - L| < \epsilon$$
+	If not such value of $L$ can be found, the the $\lim\limits_{x\to a} f(x)$
+	\textbf{does not exist}.
+\end{definition}
+
+The geometric interpretation of this definition can be seen in 
+Figure 1.2.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+            domain=0:2, 
+            axis lines =left, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west},
+            xtick={0.7,1,1.3}, ytick={3,4,5},
+            xticklabels={$a-\delta$,$a$,$a+\delta$}, yticklabels={$L-\epsilon$,$L$,$L+\epsilon$},
+            axis on top,
+          ]          
+			\addplot [color=textColor, fill=fill2, smooth, domain=(0:1.570)] {5} \closedcycle;
+			\addplot [color=textColor, dashed, fill=fill1, smooth, domain=(0:1.3)] {4.537} \closedcycle;
+			\addplot [color=textColor, dashed, fill=fill2, domain=(0:.7)] {3.283} \closedcycle;       
+			\addplot [textColor, very thick, smooth, domain=(0:1)] {4};
+			\addplot [color=textColor, fill=background, smooth, domain=(0:0.607)] {3} \closedcycle;
+			\addplot [draw=none, fill=background, smooth] {x*(x-2)^2+3*x} \closedcycle;
+			\addplot [fill=fill1, draw=none, domain=.7:1.3] {x*(x-2)^2+3*x} \closedcycle;
+			\addplot [textColor, very thick] plot coordinates {(1,0) (1,4)};
+			\addplot [textColor] plot coordinates {(.7,0) (.7,3.283)};
+			\addplot [textColor] plot coordinates {(1.3,0) (1.3,4.537)};
+	  		\addplot [very thick,penColor, smooth] {x*(x-2)^2+3*x};
+        \end{axis}
+	\end{tikzpicture}
+	\caption{A geometric interpretation of the
+	  $(\epsilon,\delta)$-criterion for limits.  If $0<|x-a|<\delta$, then we have that $a
+	  -\delta < x < a+\delta$. In our diagram, we see that for all such
+	  $x$ we are sure to have $L - \epsilon< f(x) < L+\epsilon$, and hence
+	  $|f(x) - L|<\epsilon$.}
+	\label{figure:epsilon-delta}
+\end{figure}
+~\newline
+\begin{example}
+	Let $f(x) = \lfloor x\rfloor$. Explain why the limit
+	$$\lim_{x\to 2} f(x)$$
+	\quad does not exist.
+	~\newline
+	\begin{solution}~\newline
+		The function $\lfloor x \rfloor$ is the function that returns the
+		greatest integer less than or equal to $x$. Since $f(x)$ is defined
+		for all real numbers, one might be tempted to think that the limit
+		above is simply $f(2) = 2$. However, this is not the case.  If $x<2$,
+		then $f(x) =1$. Hence if $\epsilon = .5$, we can \textbf{always} find
+		a value for $x$ (just to the left of $2$) such that
+		$$
+		0< |x -2|< \delta, \qquad\text{where} \qquad \epsilon < |f(x)-2|.
+		$$
+		On the other hand, $\lim\limits_{x\to 2} f(x)\ne 1$, as in this case if
+		$\epsilon=.5$, we can \textbf{always} find a value for $x$ (just to
+		the right of $2$) such that
+		$$
+		0<|x- 2|<\delta, \qquad\text{where} \qquad  \epsilon<|f(x)-1|.
+		$$
+		In fact, no matter what value one
+		chooses for $\lim\limits_{x\to 2} f(x)$, we will always have a similar
+		issue.
+	\end{solution}
+\end{example}
+
+Limits may not exist even if the formula for the function looks normal.
+~\newline
+\begin{example}
+	Let $f(x) = \sin\left(\frac{1}{x}\right)$. Explain why the limit
+	$$\lim_{x\to 0} f(x)$$
+	\quad does not exist.
+	~\newline
+	\begin{solution}~\newline
+		In this case $f(x)$ oscillates ``wildly'' as $x$ approaches $0$, see
+		Figure~\ref{plot:sin 1/x}. In fact, one can show that for any given
+		$\delta$, There is a value for $x$ in the interval
+		$$
+		0-\delta < x < 0+\delta
+		$$
+		such that $f(x)$ is \textbf{any} value in the interval $[-1,1]$. Hence
+		the limit does not exist.
+	\end{solution}
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+					domain=-.2:.2,    
+					samples=500,
+					axis lines =middle, xlabel=$x$, ylabel=$y$,
+					yticklabels = {}, 
+					every axis y label/.style={at=(current axis.above origin),anchor=south},
+					every axis x label/.style={at=(current axis.right of origin),anchor=west},
+					clip=false,
+				  ]
+			  \addplot [very thick, penColor, smooth, domain=(-.2:-.02)] {sin(deg(1/x))};
+				  \addplot [very thick, penColor, smooth, domain=(.02:.2)] {sin(deg(1/x))};
+			  \addplot [color=penColor, fill=penColor, very thick, smooth,domain=(-.02:.02)] {1} \closedcycle;
+				  \addplot [color=penColor, fill=penColor, very thick, smooth,domain=(-.02:.02)] {-1} \closedcycle;
+				\end{axis}
+		\end{tikzpicture}
+		\caption{A plot of $f(x)=\protect\sin\left(\frac{1}{x}\right)$.}
+		\label{plot:sin 1/x}
+		\end{figure}
+\end{example}
+
+Sometimes the limit of a function exists from one side or the other
+(or both) even though the limit does not exist. Since it is useful to
+be able to talk about this situation, we introduce the concept of a
+\textit{one-sided limit}\index{one-sided limit}:
+
+\begin{definition}[One-Sided Limit]
+	We say that the \textbf{limit} of $f(x)$ as $x$ 
+	goes to $a$ from the \textbf{left} is $L$,
+	$$\lim_{x\to a^-}f(x)=L$$
+	if for every $\epsilon>0$ there is a $\delta > 0$ so that 
+	whenever $x< a$ and 
+	$$a-\delta < x \qquad\text{we have}\qquad |f(x)-L|<\epsilon.$$
+
+	We say that the \textbf{limit} of $f(x)$ as $x$ goes to $a$ 
+	from the \textbf{right} is $L$,
+	$$\lim_{x\to a^+}f(x)=L$$
+	if for every $\epsilon>0$ there is a $\delta > 0$ so that 
+	whenever $x > a$ and 
+	$$x<a+\delta \qquad\text{we have}\qquad |f(x)-L|<\epsilon.$$
+\end{definition}
+
+\begin{exercise}
+    ~\\
+
+    \begin{enumerate} 
+		% \item Use a table and a calculator to estimate $\lim\limits_{x\to 0} \frac{\sin(x)}{x}$.
+        % \item Use a table and a calculator to estimate $\lim\limits_{x\to 0} \frac{\sin(2x)}{x}$.
+        % \item Use a table and a calculator to estimate $\lim\limits_{x\to 0^+} \frac{x}{\sin\left(\frac{x}{3}\right)}$.
+        % \item Use a table and a calculator to estimate $\lim\limits_{x\to 0^-} \frac{\tan(3x)}{\tan(5x)}$.
+		% \item Use a table and a calculator to estimate $\lim\limits_{x\to 0^-} \frac{2^x-1}{x}$.
+		\item Use the definition of limits to explain why $\lim\limits_{x\to 0 } x\sin
+		\left( {1\over x}\right) = 0$.  Hint: Use the fact that $|\sin(a) |\le 1$ for any real number $a$.
+		\item Use the definition of limits to explain why $\lim\limits_{x\to 4^+} (2x-5) = 3$.
+		\item Use the definition of limits to explain why $\lim\limits_{x\to -2} \pi = \pi$.
+		\item Use the definition of limits to explain why $\lim\limits_{x\to 4} x^3 = 64$.
+		\item Use the definition of limits to explain why $\lim\limits_{x\to 9^-} \frac{x-9}{\sqrt{x}-3} = 6$.
+        \item Sketch a plot of $f(x) = \dfrac{x}{|x|}$ and explain why $\lim\limits_{x\to 0} \frac{x}{|x|}$ does not exist.
+    \end{enumerate}
+
+\end{exercise}

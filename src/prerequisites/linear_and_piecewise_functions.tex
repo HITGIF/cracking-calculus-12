@@ -1,0 +1,184 @@
+\chapterimage{img/line.jpg} 
+\chapter{Linear and Piecewise Functions}
+
+\section{Introduction to Functions}
+
+Many everyday phenomena involve two quantities that are related to each other by some rule of correspondence. The mathematical term for such a rule of correspondence is a \textbf{relation}. In mathematics, relations are often represented by mathematical equations and formulas. For instance, the simple interest $I$ earned on \$1000 for 1 year is related to the annual interest rate r by the formula $I = 1000r$.  \cite{ci}
+
+The formula $I = 1000r$ represents a special kind of relation that matches each item from one set with \textit{exactly one} item from a different set. Such a relation is called a \textbf{function}.
+
+\begin{definition}[Function]
+	A \textbf{function} f from a set $A$ to a set $B$ is a relation that assigns to each element $x$ in the set $A$ exactly one element $y$ in the set $B$. The set $A$ is the \textbf{domain} (or set of inputs) of the function $f$, and the set $B$ contains the \textbf{range} (or set of outputs). \cite{ci}
+\end{definition}
+
+Functions are commonlt represented in four ways.
+
+\begin{proposition}[Four ways to represent a function]~\newline
+	\begin{enumerate}
+		\item \textit{Verbally} by a sentence that describes how the input variable is related to the output variable
+		\item \textit{Numerically} by a table or a list of ordered pairs that matches input values with output values
+		\item \textit{Graphically} by points on a graph in a coordinate plane in which the input values are represented by the horizontal axis and the output values are represented by the vertical axis
+		\item \textit{Analytically} by an equation in two variables
+	\end{enumerate}
+	\cite{ci}
+\end{proposition}
+
+~\newline
+To determine whether or not a relation is a function, you must decide whether each input value is matched with exactly one output value. When any input value is matched with two or more output values, the relation is not a function.
+
+\begin{example}[Testing for Functions]~\newline
+	Determine whether the relation represents $y$ as a function of $x$. \cite{ci}
+	\begin{enumerate}
+		\item The input value $x$ is the number of representatives from a state, and the output value $y$ is the number of senators.
+		\item Function $f$ is defined as the following table
+		      \begin{table}[h]
+		      	\centering
+		      	\begin{tabular}{l l}
+		      		\toprule
+		      		\textbf{Input, $x$} & \textbf{Output, $y$} \\
+		      		\midrule
+		      		2         & 11      \\
+		      		2         & 10      \\
+		      		3         & 8       \\
+		      		4         & 5       \\
+		      		5         & 1       \\
+		      		\bottomrule
+		      	\end{tabular}
+		      \end{table}
+	\end{enumerate} 
+	\begin{solution}~\newline
+		\begin{enumerate}
+			\item  This verbal description \textit{does} describe $y$ as a function of $x$. Regardless of the value of $x$, the value of $y$ is always 2. Such functions are called \textit{constant functions}.
+			\item  This table \textit{does not} describe $y$ as a function of $x$. The input value 2 is matched with two different y-values.
+		\end{enumerate}    
+	\end{solution}
+\end{example}
+
+\section{Function Notation}
+
+When an equation is used to represent a function, it is convenient to name the function so that it can be referenced easily. For example, you know that the equation $y=3x+4$ describes $y$ as a function of $x$. Suppose you give this function the name “$f.$” Then you can use the following \textbf{function notation}. \cite{ci}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l l}
+		\toprule
+		\textbf{Input} & \textbf{Output} & \textbf{Equation} \\
+		\midrule
+		$x$   & $f(x)$    & $f(x) = 3x+4$ \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+The symbol $f(x)$ is read as the value of $f$ at $x$ or simply $f$ of $x$. The symbol $f(x)$ corresponds to the y-value for a given $x$. So, you can write $y=f(x)$. Keep in mind that $f$ is the name of the function, whereas $f(x)$ is the value of the function at $x$. For instance, the function given by
+\begin{align}
+	  & f(x) = 3x+4 
+\end{align}
+
+has function values denoted by $f(0)$, $f(1)$, $f(2)$, and so on. To find these values, substitute the specified input values into the given equation.
+\begin{align*}
+	f(-1) & =3(-1)+4 = -3+4 = 1 &   & x=-1 \\
+	f(0)  & =3(0)+4 = 0+4 = 4   &   & x=0  \\
+	f(2)  & =3(2)+4 = 6+4 = 10  &   & x=2  
+\end{align*}
+
+Although $f$ is often used as a convenient function name and $x$ is often used as the independent variable, you can use other letters. For instance,
+\begin{align}
+	  & f(x)=3x+4\text{, }\quad f(t)=3t+4\text{, }\quad g(s)=3s+4 
+\end{align}
+
+all define the same function. In fact, the role of the independent variable is that of a “placeholder” that can be replaced by 
+\textit{any real number or algebraic expression}. \cite{ci}
+
+\begin{example}[Evaluating a Function]~\newline
+	Let $g(x)=-7x+20$. Find each function value \cite{ci}
+	\begin{enumerate}
+		\item $g(2)$
+		\item $g(t)$
+		\item $g(x+2)$\\
+	\end{enumerate} 
+	\begin{solution}~\newline
+		\begin{enumerate}
+			\item  Replacing $x$ with 2 in $g(x)=-7x+20$ yields the following.
+			      \begin{align}
+			      	g(2) & = -7(2) + 20 \\
+			      	     & = -14+20     \\
+			      	     & = 6          
+			      \end{align}
+			\item  Replacing $x$ with $t$ yields the following.
+			      \begin{align}
+			      	g(t) & = -7(t) + 20 \\
+			      	     & = -7t+20     
+			      \end{align}
+			\item  Replacing $x$ with $x+2$ yields the following.
+			      \begin{align}
+			      	g(x+2) & = -7(x+2) + 20 \\
+			      	       & = -7x-14+20    \\
+			      	       & =7x+20         
+			      \end{align}
+		\end{enumerate}    
+	\end{solution}
+\end{example}
+
+\section{Piecewise Function}
+A function defined by two or more equations over a specified 
+domain is called a \textbf{piecewise-defined function}. \cite{ci}\\
+
+\begin{example}[A Piecewise-Defined Function]~\newline
+	Evaluate the function when $x=-1$, $0$, and $1$. \cite{ci}
+	\begin{equation}
+		f(x)=\left\{
+		\begin{aligned} 
+			  & x^2+1, &   & x < 0    \\
+			  & x-1,   &   & x \geq 0
+		\end{aligned}\right.
+	\end{equation}
+	\begin{solution} Because $x=-1$ is less than 0, use $f(x)=x^2+1$ 
+		to obtain
+		\begin{align}f(-1) = (-1)^2+1 = 2\end{align}
+		For $x=0$, use $f(x) = x-1$ to obtain
+		\begin{align}f(0) = (0)-1 = -1\end{align}
+		For $x=1$, use $f(x) = x-1$ to obtain
+		\begin{align}f(1) = (1)-1 = 0\end{align}
+	\end{solution}
+\end{example}
+
+
+\begin{exercise}
+    ~\\
+
+    \begin{enumerate} 
+		\item A relation that assigns to each element x from a set of inputs, or \blank, exactly one element y in a set of outputs, or \blank, is called a \blank. \cite{ci}
+		\item Functions are commonly represented in four different ways, \blank, \blank, \blank, and \blank. \cite{ci}
+		\item For an equation that represents y as a function of x, the set of all values taken on by the \blank variable x is the domain, and the set of all values taken on by the \blank variable y is the range. \cite{ci}
+        \item The function given by\\
+		$f(x)=
+		\begin{cases}
+			2x-1,	& x<0\\
+			x^2+4,	& x\geq 0
+		\end{cases}$\\
+		is an example of a \blank function.
+    \end{enumerate}
+    ~\\\-\hspace{0.3cm} \textbf{
+        In Exercises 5–7, evaluate the function at each specified value of the independent variable and simplify.
+    }\\
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item $f(x)=2x-3$\\
+        (a) $f(1)$ \qquad (b) $f(-3)$ \qquad (c) $f(x-1)$
+        \item $f(x)=
+		\begin{cases}
+			3x-1,	& x<-1				\\
+			4,		& -1 \leq x \leq 1	\\
+			x^2,	& x>1
+		\end{cases}$\\
+        (a) $f(-2)$ \qquad (b) $f(-\dfrac{1}{2})$ \qquad (c) $f(3)$
+        \item $f(x)=
+		\begin{cases}
+			4-5x,	& x\leq -2		\\
+			0,		& -2 < x < 2	\\
+			x^2+1,	& x\geq 2
+		\end{cases}$\\
+        (a) $f(-3)$ \qquad (b) $f(4)$ \qquad (c) $f(-1)$
+    \end{enumerate}
+
+\end{exercise}
